@@ -1,0 +1,206 @@
+/* Hero da página */
+.hero {
+  background: linear-gradient(135deg, var(--cor-terciaria) 0%, var(--cor-primaria) 100%);
+  color: var(--cor-texto-claro);
+  padding: var(--espaco-xl) 0;
+  text-align: center;
+}
+
+.heroConteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-sm);
+  max-width: 760px;
+}
+
+.heroTitulo {
+  color: var(--cor-texto-claro);
+  margin: 0;
+}
+
+.heroTexto {
+  margin: 0;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* Acolhimento inicial, logo após o hero */
+.avisoDestaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #eef6ff;
+  border-left: 5px solid var(--cor-primaria);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.avisoDestaque p {
+  margin: 0;
+}
+
+.avisoIcone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Grade genérica de cards (primeiros passos e terapias) */
+.gradeCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+}
+
+@media (min-width: 768px) {
+  .gradeCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gradeCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Blocos de comunicação (família e escola) */
+.gradeComunicacao {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+}
+
+@media (min-width: 768px) {
+  .gradeComunicacao {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cardComunicacao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-top: 5px solid var(--cor-primaria);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-card);
+  padding: var(--espaco-md);
+  height: 100%;
+}
+
+.cardComunicacaoIcone {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cardComunicacaoTitulo {
+  margin: 0;
+  font-size: 22px;
+}
+
+.listaDicas {
+  margin: var(--espaco-xs) 0 0 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.listaDicas li {
+  font-size: 16px;
+}
+
+/* Lista de dicas de rotina */
+.listaRotina {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.listaRotina li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-xs);
+  font-size: 18px;
+  background-color: var(--cor-fundo-alt);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm);
+}
+
+/* Box de destaque com informação importante, sobre fundo claro */
+.destaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 800px;
+  margin: var(--espaco-md) auto 0 auto;
+  background-color: #fff6e6;
+  border-left: 5px solid var(--cor-secundaria);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.destaque p {
+  margin: 0;
+}
+
+.destaqueIcone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Bloco final sobre o fundo azul (cuidando de quem cuida) */
+.blocoFinal {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.destaqueClaro {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.destaqueClaro p {
+  margin: 0;
+}
+
+.listaClara {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.cta {
+  text-align: center;
+  font-weight: 600;
+}
+
+.ctaLink {
+  color: var(--cor-texto-claro);
+  text-decoration: underline;
+}
+
+.ctaLink:hover {
+  color: var(--cor-secundaria);
+}

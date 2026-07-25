@@ -1,0 +1,140 @@
+/* Hero da página */
+.hero {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
+  color: var(--cor-texto-claro);
+  padding: var(--espaco-xl) 0;
+  text-align: center;
+}
+
+.heroConteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-sm);
+  max-width: 760px;
+}
+
+.heroTitulo {
+  color: var(--cor-texto-claro);
+  margin: 0;
+}
+
+.heroTexto {
+  margin: 0;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* Bloco de texto corrido, com largura confortável de leitura */
+.blocoTexto {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+/* Box de destaque com informação importante, sobre fundo claro */
+.destaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  background-color: #eef6ff;
+  border-left: 5px solid var(--cor-primaria);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.destaque p {
+  margin: 0;
+}
+
+.destaqueIcone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Grade de cards com os valores do projeto */
+.gradeCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+}
+
+@media (min-width: 768px) {
+  .gradeCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gradeCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Aviso importante, sobre o fundo azul */
+.blocoAviso {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+  font-size: 18px;
+}
+
+.blocoAviso p {
+  margin: 0;
+}
+
+/* Botões de compartilhamento */
+.compartilhar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--espaco-sm);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.botaoCompartilhar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-xs);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.botaoCompartilhar:hover {
+  background-color: var(--cor-primaria-escura);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+}
+
+/* Tablet e acima: botões lado a lado */
+@media (min-width: 768px) {
+  .compartilhar {
+    flex-direction: row;
+    max-width: none;
+  }
+
+  .botaoCompartilhar {
+    flex: 1;
+  }
+}

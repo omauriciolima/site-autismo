@@ -1,0 +1,159 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--espaco-sm);
+  padding-bottom: var(--espaco-sm);
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-xs);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.logo span:first-child {
+  font-size: 28px;
+}
+
+/* Botão hamburger — visível apenas no mobile/tablet */
+.botaoMenu {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--espaco-xs);
+  width: 44px;
+  height: 44px;
+}
+
+.icone,
+.icone::before,
+.icone::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--cor-texto);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icone {
+  position: relative;
+  margin: 0 auto;
+}
+
+.icone::before,
+.icone::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.icone::before {
+  top: -8px;
+}
+
+.icone::after {
+  top: 8px;
+}
+
+.iconeAberto {
+  background-color: transparent;
+}
+
+.iconeAberto::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.iconeAberto::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Menu de navegação — escondido no mobile até ser aberto */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.navAberta {
+  max-height: 600px;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: var(--espaco-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.link,
+.linkAtivo {
+  display: block;
+  padding: var(--espaco-xs) var(--espaco-sm);
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.link:hover {
+  background-color: var(--cor-fundo-alt);
+  color: var(--cor-primaria-escura);
+}
+
+.linkAtivo {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+/* Desktop: menu sempre visível na horizontal, botão hamburger some */
+@media (min-width: 1024px) {
+  .botaoMenu {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    border-bottom: none;
+    background-color: transparent;
+  }
+
+  .lista {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .link,
+  .linkAtivo {
+    padding: var(--espaco-xs) var(--espaco-sm);
+  }
+}

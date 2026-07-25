@@ -1,0 +1,189 @@
+/* Hero da página */
+.hero {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
+  color: var(--cor-texto-claro);
+  padding: var(--espaco-xl) 0;
+  text-align: center;
+}
+
+.heroConteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-sm);
+  max-width: 760px;
+}
+
+.heroTitulo {
+  color: var(--cor-texto-claro);
+  margin: 0;
+}
+
+.heroTexto {
+  margin: 0;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/* Aviso importante no topo da página */
+.avisoDestaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff6e6;
+  border-left: 5px solid var(--cor-secundaria);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.avisoDestaque p {
+  margin: 0;
+}
+
+.avisoIcone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Grade de cards com sinais por faixa etária */
+.gradeFaixas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+  margin-bottom: var(--espaco-lg);
+}
+
+@media (min-width: 768px) {
+  .gradeFaixas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardFaixa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-top: 5px solid var(--cor-primaria);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-card);
+  padding: var(--espaco-md);
+  height: 100%;
+}
+
+.cardFaixaIcone {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.cardFaixaTitulo {
+  margin: 0;
+  font-size: 22px;
+}
+
+.cardFaixaIntro {
+  margin: 0;
+  color: var(--cor-texto-suave);
+}
+
+.listaSinais {
+  margin: var(--espaco-xs) 0 0 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-xs);
+}
+
+.listaSinais li {
+  font-size: 16px;
+}
+
+/* Box de destaque com informação importante, sobre fundo claro */
+.destaque {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #eef6ff;
+  border-left: 5px solid var(--cor-primaria);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.destaque p {
+  margin: 0;
+}
+
+.destaqueIcone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Grades de cards (etapas do diagnóstico e profissionais) */
+.gradeEtapas,
+.gradeProfissionais {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+}
+
+@media (min-width: 768px) {
+  .gradeEtapas,
+  .gradeProfissionais {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gradeEtapas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gradeProfissionais {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Bloco final sobre o fundo azul (o que esperar do processo) */
+.blocoFinal {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.destaqueClaro {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.destaqueClaro p {
+  margin: 0;
+}
+
+.cta {
+  text-align: center;
+  font-weight: 600;
+}
+
+.ctaLink {
+  color: var(--cor-texto-claro);
+  text-decoration: underline;
+}
+
+.ctaLink:hover {
+  color: var(--cor-secundaria);
+}

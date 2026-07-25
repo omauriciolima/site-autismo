@@ -1,0 +1,47 @@
+.secao {
+  padding: var(--espaco-xl) 0;
+}
+
+.branco {
+  background-color: var(--cor-fundo);
+}
+
+.suave {
+  background-color: var(--cor-fundo-alt);
+}
+
+.primaria {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+.primaria .titulo,
+.primaria .subtitulo {
+  color: var(--cor-texto-claro);
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+}
+
+.titulo {
+  margin: 0;
+  text-align: center;
+}
+
+.subtitulo {
+  margin: 0 auto var(--espaco-sm) auto;
+  max-width: 700px;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 18px;
+}
+
+/* Tablet e acima: um pouco mais de respiro nas laterais */
+@media (min-width: 768px) {
+  .secao {
+    padding: var(--espaco-xl) 0;
+  }
+}

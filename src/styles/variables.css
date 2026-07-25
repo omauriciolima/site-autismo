@@ -1,0 +1,51 @@
+/*
+  Paleta de cores e variáveis globais do site.
+  Todas as combinações de texto/fundo aqui definidas respeitam
+  contraste mínimo de 4.5:1 (nível AA de acessibilidade).
+*/
+
+:root {
+  /* Cores de fundo */
+  --cor-fundo: #ffffff;
+  --cor-fundo-alt: #f9f9f9;
+
+  /* Cores principais da marca */
+  --cor-primaria: #4a90d9; /* azul acolhedor */
+  --cor-primaria-escura: #2f6fb0; /* usada em textos/hover sobre fundo claro para reforçar contraste */
+  --cor-secundaria: #f5a623; /* laranja suave */
+  --cor-secundaria-escura: #c97e00; /* variação escura para texto/hover */
+  --cor-terciaria: #5cb85c; /* verde menta */
+  --cor-terciaria-escura: #3d8b3d; /* variação escura para texto/hover */
+
+  /* Cores de texto */
+  --cor-texto: #333333;
+  --cor-texto-claro: #ffffff;
+  --cor-texto-suave: #555555;
+
+  /* Cores de apoio */
+  --cor-borda: #e0e0e0;
+  --cor-foco: #2f6fb0; /* cor do contorno de foco visível */
+
+  /* Tipografia */
+  --fonte-principal: 'Nunito', 'Segoe UI', sans-serif;
+  --tamanho-base: 16px;
+  --altura-linha: 1.7;
+
+  --titulo-h1: clamp(28px, 5vw, 40px);
+  --titulo-h2: clamp(24px, 4vw, 32px);
+  --titulo-h3: clamp(20px, 3vw, 28px);
+
+  /* Espaçamentos */
+  --espaco-xs: 8px;
+  --espaco-sm: 16px;
+  --espaco-md: 24px;
+  --espaco-lg: 40px;
+  --espaco-xl: 64px;
+
+  /* Bordas e sombras */
+  --raio-borda: 12px;
+  --sombra-card: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+  /* Breakpoints de referência (usados nos comentários dos arquivos CSS) */
+  /* mobile: até 480px | tablet: 768px | desktop: 1024px | desktop-grande: 1280px */
+}
