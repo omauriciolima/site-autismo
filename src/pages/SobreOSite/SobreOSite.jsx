@@ -110,10 +110,11 @@ function SobreOSite() {
             </p>
           </div>
           <div className={styles.historiaFoto}>
-            <span className={styles.historiaFotoIcone} aria-hidden="true">
-              📷
-            </span>
-            <p>Foto do Davi em breve 📷</p>
+            <img
+              src="/imagens/davi.jpg"
+              alt="Foto do Davi, filho do criador do site"
+              className={styles.historiaFotoImagem}
+            />
           </div>
         </div>
       </Section>
