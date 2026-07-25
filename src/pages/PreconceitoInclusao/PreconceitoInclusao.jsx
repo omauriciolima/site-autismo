@@ -94,13 +94,23 @@ function PreconceitoInclusao() {
       {/* Hero da página */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Preconceito e Inclusão
-          </h1>
-          <p className={styles.heroTexto}>
-            Entender como o preconceito se manifesta é o primeiro passo para construir
-            uma sociedade mais acolhedora com as diferenças.
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              Preconceito e Inclusão
+            </h1>
+            <p className={styles.heroTexto}>
+              Entender como o preconceito se manifesta é o primeiro passo para construir
+              uma sociedade mais acolhedora com as diferenças.
+            </p>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/Children-bro.png"
+              alt="Ilustração de crianças brincando juntas, representando a inclusão e o respeito às diferenças."
+              width="420"
+              height="320"
+            />
+          </div>
         </div>
       </section>
 

@@ -19,6 +19,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--cor-fundo-alt);
+  background-image: var(--padrao-puzzle);
+  background-repeat: repeat;
   color: var(--cor-texto);
   font-family: var(--fonte-principal);
   font-size: var(--tamanho-base);

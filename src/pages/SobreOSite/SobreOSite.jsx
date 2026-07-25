@@ -58,15 +58,65 @@ function SobreOSite() {
       {/* Hero da página */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Sobre o Site
-          </h1>
-          <p className={styles.heroTexto}>
-            Conheça o propósito, os valores e a história por trás deste projeto
-            independente e educativo sobre o Autismo.
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              Sobre o Site
+            </h1>
+            <p className={styles.heroTexto}>
+              Conheça o propósito, os valores e a história por trás deste projeto
+              independente e educativo sobre o Autismo.
+            </p>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/Autism-rafiki.png"
+              alt="Ilustração de uma pessoa acolhida e segura, representando os valores e o propósito deste site."
+              width="420"
+              height="320"
+            />
+          </div>
         </div>
       </section>
+
+      {/* Nossa história */}
+      <Section titulo="Nossa História 💙" fundo="branco">
+        <div className={styles.historiaBox}>
+          <div className={styles.historiaTexto}>
+            <p>Olá! Eu sou o Davi. 👋</p>
+            <p>
+              Tenho poucos anos de vida, mas já tenho muita história para contar. Desde
+              pequenininho, meus pais perceberam que eu enxergava o mundo de um jeito
+              especial — me apaixonava profundamente por algumas coisas, o que os médicos
+              chamam de hiperfoco. Foi por isso que meu diagnóstico veio cedo.
+            </p>
+            <p>
+              Mas cedo não significa fácil. Ainda enfrentamos muitas barreiras — e
+              continuamos enfrentando. Quando meus pais receberam a notícia, ficaram
+              assustados. É normal. Se você está passando por isso agora, quero te dizer:
+              você também consegue. Acolher um filho autista é um caminho desafiador, mas
+              cheio de amor e descobertas.
+            </p>
+            <p>
+              Desde o início, meus pais nunca pararam de buscar profissionais que
+              pudessem me ajudar a evoluir e me comunicar com o mundo.
+            </p>
+            <p>
+              Hoje estou bem e progredindo. Ainda sou não verbal, mas me comunico — do
+              meu jeito, no meu tempo. E isso é muito. 💙
+            </p>
+            <p>
+              Este site nasceu da nossa história. Para que outras famílias se sintam
+              menos sozinhas.
+            </p>
+          </div>
+          <div className={styles.historiaFoto}>
+            <span className={styles.historiaFotoIcone} aria-hidden="true">
+              📷
+            </span>
+            <p>Foto do Davi em breve 📷</p>
+          </div>
+        </div>
+      </Section>
 
       {/* Por que este site existe */}
       <Section titulo="Por que este site existe" fundo="branco">

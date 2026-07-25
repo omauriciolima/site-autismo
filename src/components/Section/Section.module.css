@@ -4,14 +4,20 @@
 
 .branco {
   background-color: var(--cor-fundo);
+  background-image: var(--padrao-puzzle);
+  background-repeat: repeat;
 }
 
 .suave {
   background-color: var(--cor-fundo-alt);
+  background-image: var(--padrao-puzzle);
+  background-repeat: repeat;
 }
 
 .primaria {
   background-color: var(--cor-primaria);
+  background-image: var(--padrao-puzzle);
+  background-repeat: repeat;
   color: var(--cor-texto-claro);
 }
 

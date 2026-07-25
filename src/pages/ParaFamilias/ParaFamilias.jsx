@@ -116,13 +116,23 @@ function ParaFamilias() {
       {/* Hero da página */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Para Famílias
-          </h1>
-          <p className={styles.heroTexto}>
-            Orientações práticas e acolhedoras para os primeiros passos, o dia a dia e o
-            cuidado com quem cuida.
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              Para Famílias
+            </h1>
+            <p className={styles.heroTexto}>
+              Orientações práticas e acolhedoras para os primeiros passos, o dia a dia e o
+              cuidado com quem cuida.
+            </p>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/African-family-cuate.png"
+              alt="Ilustração de uma família reunida e unida, representando o apoio familiar no dia a dia."
+              width="420"
+              height="320"
+            />
+          </div>
         </div>
       </section>
 

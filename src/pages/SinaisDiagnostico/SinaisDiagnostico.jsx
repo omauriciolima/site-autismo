@@ -123,13 +123,23 @@ function SinaisDiagnostico() {
       {/* Hero da página */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Sinais e Diagnóstico
-          </h1>
-          <p className={styles.heroTexto}>
-            Observar sinais com atenção e buscar uma avaliação profissional são os
-            primeiros passos para oferecer o apoio certo, no momento certo.
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              Sinais e Diagnóstico
+            </h1>
+            <p className={styles.heroTexto}>
+              Observar sinais com atenção e buscar uma avaliação profissional são os
+              primeiros passos para oferecer o apoio certo, no momento certo.
+            </p>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/Learning-cuate.png"
+              alt="Ilustração de uma pessoa aprendendo e observando, representando a identificação de sinais e o processo de diagnóstico."
+              width="420"
+              height="320"
+            />
+          </div>
         </div>
       </section>
 

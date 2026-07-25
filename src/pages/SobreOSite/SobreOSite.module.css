@@ -3,15 +3,22 @@
   background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
   color: var(--cor-texto-claro);
   padding: var(--espaco-xl) 0;
-  text-align: center;
 }
 
 .heroConteudo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--espaco-lg);
+}
+
+.heroColunaTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: var(--espaco-sm);
-  max-width: 760px;
+  max-width: 600px;
 }
 
 .heroTitulo {
@@ -22,7 +29,103 @@
 .heroTexto {
   margin: 0;
   font-size: 18px;
-  max-width: 600px;
+}
+
+.heroImagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.heroImagem img {
+  height: 280px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Desktop: hero em duas colunas, texto à esquerda e ilustração à direita */
+@media (min-width: 900px) {
+  .heroConteudo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-xl);
+  }
+
+  .heroColunaTexto {
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+  }
+
+  .heroImagem {
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
+
+/* Nossa história */
+.historiaBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.historiaTexto {
+  background-color: #ebf5ff;
+  border-left: 4px solid #4a90d9;
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-sm);
+  font-size: 18px;
+}
+
+.historiaTexto p {
+  margin: 0;
+}
+
+.historiaFoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-xs);
+  background-color: #f0f0f0;
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-lg);
+  min-height: 220px;
+  text-align: center;
+  color: var(--cor-texto-suave);
+}
+
+.historiaFotoIcone {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.historiaFoto p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Desktop: texto e foto lado a lado */
+@media (min-width: 900px) {
+  .historiaBox {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .historiaTexto {
+    flex: 3;
+  }
+
+  .historiaFoto {
+    flex: 2;
+  }
 }
 
 /* Bloco de texto corrido, com largura confortável de leitura */

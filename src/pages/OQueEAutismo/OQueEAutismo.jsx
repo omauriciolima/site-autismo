@@ -70,13 +70,23 @@ function OQueEAutismo() {
       {/* Hero da página */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            O que é o Autismo?
-          </h1>
-          <p className={styles.heroTexto}>
-            Uma explicação simples sobre o Transtorno do Espectro Autista (TEA), como ele
-            se manifesta e por que cada pessoa autista é única.
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              O que é o Autismo?
+            </h1>
+            <p className={styles.heroTexto}>
+              Uma explicação simples sobre o Transtorno do Espectro Autista (TEA), como ele
+              se manifesta e por que cada pessoa autista é única.
+            </p>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/Autism-cuate.png"
+              alt="Ilustração de uma pessoa em um ambiente acolhedor, representando o universo do Autismo."
+              width="420"
+              height="320"
+            />
+          </div>
         </div>
       </section>
 

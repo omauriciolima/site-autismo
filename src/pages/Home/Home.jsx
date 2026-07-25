@@ -13,13 +13,26 @@ function Home() {
       {/* Hero section */}
       <section className={styles.hero} aria-labelledby="hero-titulo">
         <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Todo mundo merece ser compreendido.
-          </h1>
-          <p className={styles.heroTexto}>
-            Informação clara, acolhedora e sem jargões para famílias, educadores e
-            profissionais que querem entender e apoiar melhor pessoas com Autismo (TEA).
-          </p>
+          <div className={styles.heroColunaTexto}>
+            <h1 id="hero-titulo" className={styles.heroTitulo}>
+              Todo mundo merece ser compreendido.
+            </h1>
+            <p className={styles.heroTexto}>
+              Informação clara, acolhedora e sem jargões para famílias, educadores e
+              profissionais que querem entender e apoiar melhor pessoas com Autismo (TEA).
+            </p>
+            <a href="#acesso-rapido" className={styles.heroCta}>
+              Explorar o site
+            </a>
+          </div>
+          <div className={styles.heroImagem}>
+            <img
+              src="/imagens/Family-cuate.png"
+              alt="Ilustração de uma família reunida e feliz, representando acolhimento e apoio mútuo."
+              width="500"
+              height="400"
+            />
+          </div>
         </div>
       </section>
 

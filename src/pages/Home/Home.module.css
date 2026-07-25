@@ -2,15 +2,22 @@
   background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
   color: var(--cor-texto-claro);
   padding: var(--espaco-xl) 0;
-  text-align: center;
 }
 
 .heroConteudo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--espaco-lg);
+}
+
+.heroColunaTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: var(--espaco-sm);
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .heroTitulo {
@@ -21,7 +28,60 @@
 .heroTexto {
   margin: 0;
   font-size: 18px;
-  max-width: 600px;
+}
+
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--espaco-xs);
+  padding: 14px 32px;
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-primaria-escura);
+  border-radius: var(--raio-borda);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.heroCta:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+}
+
+.heroImagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.heroImagem img {
+  height: 400px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Desktop: hero em duas colunas, texto à esquerda e ilustração à direita */
+@media (min-width: 900px) {
+  .heroConteudo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-xl);
+  }
+
+  .heroColunaTexto {
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+  }
+
+  .heroImagem {
+    flex: 1;
+    justify-content: flex-end;
+  }
 }
 
 .gradeCards {
