@@ -14,7 +14,7 @@ export const paginas = [
     titulo: 'O que é Autismo',
     caminho: '/o-que-e-autismo',
     descricao: 'Entenda de forma simples o que é o Transtorno do Espectro Autista.',
-    icone: '🧩',
+    icone: '♾️',
     cor: 'var(--cor-primaria)',
   },
   {

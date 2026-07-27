@@ -84,7 +84,7 @@ const terapias = [
     descricao: 'Trabalha a integração sensorial, a coordenação motora e as habilidades para o dia a dia.',
   },
   {
-    icone: '🧩',
+    icone: '♾️',
     titulo: 'Psicoterapia',
     descricao: 'Ajuda a criança, o adolescente ou o adulto a lidar com emoções, ansiedade e desafios sociais.',
   },

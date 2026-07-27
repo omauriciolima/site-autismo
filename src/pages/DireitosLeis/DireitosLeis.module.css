@@ -1,6 +1,6 @@
 /* Hero da página */
 .hero {
-  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
   color: var(--cor-texto-claro);
   padding: var(--espaco-xl) 0;
   text-align: center;
@@ -32,7 +32,7 @@
   gap: var(--espaco-sm);
   max-width: 800px;
   margin: 0 auto;
-  background-color: #fff6e6;
+  background-color: #fff1ec;
   border-left: 5px solid var(--cor-secundaria);
   border-radius: var(--raio-borda);
   padding: var(--espaco-sm) var(--espaco-md);
@@ -133,7 +133,7 @@
   gap: var(--espaco-sm);
   max-width: 800px;
   margin: var(--espaco-md) auto 0 auto;
-  background-color: #eef6ff;
+  background-color: var(--cor-fundo-alt);
   border-left: 5px solid var(--cor-primaria);
   border-radius: var(--raio-borda);
   padding: var(--espaco-sm) var(--espaco-md);
@@ -149,7 +149,7 @@
   flex-shrink: 0;
 }
 
-/* Bloco final sobre o fundo azul (o que fazer se um direito for negado) */
+/* Bloco final sobre o fundo roxo (o que fazer se um direito for negado) */
 .blocoFinal {
   max-width: 760px;
   margin: 0 auto;
@@ -182,5 +182,6 @@
 }
 
 .ctaLink:hover {
-  color: var(--cor-secundaria);
+  color: var(--cor-fundo);
+  text-decoration-color: var(--cor-terciaria);
 }

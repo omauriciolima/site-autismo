@@ -23,7 +23,7 @@ function Header() {
     <header className={styles.header}>
       <div className={`container ${styles.conteudo}`}>
         <NavLink to="/" className={styles.logo} onClick={fecharMenu}>
-          <span aria-hidden="true">🧩</span>
+          <span aria-hidden="true">♾️</span>
           <span>Davi para Autistas</span>
         </NavLink>
 

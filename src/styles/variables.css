@@ -6,28 +6,31 @@
 
 :root {
   /* Cores de fundo */
-  --cor-fundo: #ffffff;
-  --cor-fundo-alt: #f9f9f9;
+  --cor-fundo: #fffdf7; /* off-white suave */
+  --cor-fundo-alt: #f5effb; /* leve tom lavanda para alternar seções */
 
   /* Cores principais da marca */
-  --cor-primaria: #4a90d9; /* azul acolhedor */
-  --cor-primaria-escura: #2f6fb0; /* usada em textos/hover sobre fundo claro para reforçar contraste */
-  --cor-secundaria: #f5a623; /* laranja suave */
-  --cor-secundaria-escura: #c97e00; /* variação escura para texto/hover */
-  --cor-terciaria: #5cb85c; /* verde menta */
-  --cor-terciaria-escura: #3d8b3d; /* variação escura para texto/hover */
+  --cor-primaria: #7b4fe0; /* roxo neurodiversidade */
+  --cor-primaria-escura: #5a35b0; /* usada em textos/hover sobre fundo claro para reforçar contraste */
+  --cor-secundaria: #ff6f61; /* coral acolhedor */
+  --cor-secundaria-escura: #c2362a; /* variação escura para texto/hover */
+  --cor-terciaria: #ffc93c; /* amarelo energia */
+  --cor-terciaria-escura: #8a6300; /* variação escura para texto/hover (nunca usar a cor base como texto: contraste insuficiente) */
+  --cor-apoio: #2dd4bf; /* verde-água calmo */
+  --cor-apoio-escura: #0f766e; /* variação escura para texto/hover */
 
   /* Cores de texto */
-  --cor-texto: #333333;
+  --cor-texto: #2e2a3d; /* cinza-chumbo */
   --cor-texto-claro: #ffffff;
-  --cor-texto-suave: #555555;
+  --cor-texto-suave: #5b5568;
 
   /* Cores de apoio */
-  --cor-borda: #e0e0e0;
-  --cor-foco: #2f6fb0; /* cor do contorno de foco visível */
+  --cor-borda: #e6dff2;
+  --cor-foco: #5a35b0; /* cor do contorno de foco visível */
 
   /* Tipografia */
   --fonte-principal: 'Nunito', 'Segoe UI', sans-serif;
+  --fonte-titulos: 'Baloo 2', 'Nunito', 'Segoe UI', sans-serif;
   --tamanho-base: 16px;
   --altura-linha: 1.7;
 

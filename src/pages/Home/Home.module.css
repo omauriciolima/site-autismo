@@ -1,5 +1,5 @@
 .hero {
-  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-apoio-escura) 100%);
   color: var(--cor-texto-claro);
   padding: var(--espaco-xl) 0;
 }
@@ -46,7 +46,7 @@
 }
 
 .heroCta:hover {
-  background-color: var(--cor-secundaria);
+  background-color: var(--cor-secundaria-escura);
   color: var(--cor-texto-claro);
   transform: translateY(-2px);
 }

@@ -1,6 +1,6 @@
 /* Hero da página */
 .hero {
-  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria) 100%);
+  background: linear-gradient(135deg, var(--cor-primaria-escura) 0%, var(--cor-apoio-escura) 100%);
   color: var(--cor-texto-claro);
   padding: var(--espaco-xl) 0;
 }
@@ -74,8 +74,8 @@
 }
 
 .historiaTexto {
-  background-color: #ebf5ff;
-  border-left: 4px solid #4a90d9;
+  background-color: var(--cor-fundo-alt);
+  border-left: 4px solid var(--cor-primaria);
   border-radius: var(--raio-borda);
   padding: var(--espaco-md);
   display: flex;
@@ -101,7 +101,7 @@
   max-height: 320px;
   object-fit: cover;
   border-radius: 16px;
-  border: 3px solid #4a90d9;
+  border: 3px solid var(--cor-primaria);
 }
 
 /* Desktop: texto e foto lado a lado */
@@ -135,7 +135,7 @@
   display: flex;
   align-items: flex-start;
   gap: var(--espaco-sm);
-  background-color: #eef6ff;
+  background-color: var(--cor-fundo-alt);
   border-left: 5px solid var(--cor-primaria);
   border-radius: var(--raio-borda);
   padding: var(--espaco-sm) var(--espaco-md);
@@ -170,7 +170,7 @@
   }
 }
 
-/* Aviso importante, sobre o fundo azul */
+/* Aviso importante, sobre o fundo roxo */
 .blocoAviso {
   display: flex;
   align-items: flex-start;

@@ -1,5 +1,6 @@
-/* Importa a fonte Nunito do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+/* Importa as fontes do Google Fonts: Nunito para o corpo do texto (legibilidade
+   em conteúdos longos) e Baloo 2 para títulos (reforça o clima lúdico da marca) */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@600;700;800&display=swap');
 
 @import './styles/variables.css';
 
@@ -26,8 +27,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Textura de fundo sutil (fita do autismo), aplicada via pseudo-elemento
-   para não interferir no conteúdo nem no fluxo do documento */
+/* Textura de fundo sutil com o símbolo do infinito colorido (neurodiversidade),
+   gerada em CSS (SVG inline) para não depender de um arquivo de imagem.
+   Aplicada via pseudo-elemento para não interferir no conteúdo nem no fluxo do documento. */
 body::before {
   content: '';
   position: fixed;
@@ -35,10 +37,10 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/imagens/bg_site.png');
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27220%27%20height%3D%27140%27%20viewBox%3D%270%200%20220%20140%27%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%27g%27%20gradientUnits%3D%27userSpaceOnUse%27%20x1%3D%2730%27%20y1%3D%270%27%20x2%3D%27190%27%20y2%3D%270%27%3E%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%237B4FE0%27%2F%3E%20%3Cstop%20offset%3D%2733%25%27%20stop-color%3D%27%23FF6F61%27%2F%3E%20%3Cstop%20offset%3D%2766%25%27%20stop-color%3D%27%23FFC93C%27%2F%3E%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%232DD4BF%27%2F%3E%20%3C%2FlinearGradient%3E%20%3C%2Fdefs%3E%20%3Ctext%20x%3D%27110%27%20y%3D%2795%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2770%27%20font-weight%3D%27800%27%20fill%3D%27url%28%23g%29%27%20text-anchor%3D%27middle%27%3E%26%238734%3B%3C%2Ftext%3E%20%3C%2Fsvg%3E");
   background-repeat: repeat;
-  background-size: 300px 300px;
-  opacity: 0.08;
+  background-size: 220px 140px;
+  opacity: 0.1;
   z-index: -1;
   pointer-events: none;
 }
@@ -48,6 +50,7 @@ h2,
 h3,
 h4 {
   color: var(--cor-texto);
+  font-family: var(--fonte-titulos);
   line-height: 1.3;
   font-weight: 800;
 }

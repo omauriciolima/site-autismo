@@ -96,7 +96,7 @@ const profissionais = [
     descricao: 'Pode confirmar o diagnóstico e orientar sobre acompanhamento medicamentoso, quando necessário.',
   },
   {
-    icone: '🧩',
+    icone: '♾️',
     titulo: 'Psicólogo',
     descricao: 'Realiza avaliações comportamentais e acompanha o desenvolvimento emocional e social ao longo do tempo.',
   },
