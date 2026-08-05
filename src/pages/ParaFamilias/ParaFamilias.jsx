@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './ParaFamilias.module.css'
 
 // Passos que ajudam a família a se organizar logo após o diagnóstico
@@ -113,41 +115,21 @@ const terapias = [
 function ParaFamilias() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              Para Famílias
-            </h1>
-            <p className={styles.heroTexto}>
-              Orientações práticas e acolhedoras para os primeiros passos, o dia a dia e o
-              cuidado com quem cuida.
-            </p>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/African-family-cuate.png"
-              alt="Ilustração de uma família reunida e unida, representando o apoio familiar no dia a dia."
-              width="420"
-              height="320"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="Para Famílias"
+        subtitulo="Orientações práticas e acolhedoras para os primeiros passos, o dia a dia e o cuidado com quem cuida."
+        imagem="/imagens/African-family-cuate.png"
+        imagemAlt="Ilustração de uma família reunida e unida, representando o apoio familiar no dia a dia."
+        gradiente="gradienteApoioEscuraPrimaria"
+      />
 
       {/* Acolhimento inicial */}
       <Section fundo="suave">
-        <div className={styles.avisoDestaque}>
-          <span className={styles.avisoIcone} aria-hidden="true">
-            💙
-          </span>
-          <p>
-            Se você acabou de receber o diagnóstico, respire. Um diagnóstico de TEA não é
-            uma sentença — é um mapa. Ele ajuda a entender melhor a criança (ou o adulto)
-            que você ama e a encontrar o apoio certo para o caminho de vocês.
-          </p>
-        </div>
+        <Callout variante="aviso" icone="💙">
+          Se você acabou de receber o diagnóstico, respire. Um diagnóstico de TEA não é
+          uma sentença — é um mapa. Ele ajuda a entender melhor a criança (ou o adulto)
+          que você ama e a encontrar o apoio certo para o caminho de vocês.
+        </Callout>
       </Section>
 
       {/* Primeiros passos */}
@@ -177,21 +159,13 @@ function ParaFamilias() {
       >
         <div className={styles.gradeComunicacao}>
           {comunicacao.map((bloco) => (
-            <article
-              className={styles.cardComunicacao}
-              key={bloco.titulo}
-              style={{ borderTopColor: bloco.cor }}
-            >
-              <span className={styles.cardComunicacaoIcone} aria-hidden="true">
-                {bloco.icone}
-              </span>
-              <h3 className={styles.cardComunicacaoTitulo}>{bloco.titulo}</h3>
+            <Card key={bloco.titulo} icone={bloco.icone} titulo={bloco.titulo} corDestaque={bloco.cor} tamanho="grande">
               <ul className={styles.listaDicas}>
                 {bloco.dicas.map((dica) => (
                   <li key={dica}>{dica}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </Section>
@@ -229,16 +203,11 @@ function ParaFamilias() {
             />
           ))}
         </div>
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            💡
-          </span>
-          <p>
-            Nem toda criança precisa de todas essas terapias. A equipe ideal deve ser
-            definida junto aos profissionais que acompanham a família, de acordo com as
-            necessidades de cada um.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="💡" espacoExtra>
+          Nem toda criança precisa de todas essas terapias. A equipe ideal deve ser
+          definida junto aos profissionais que acompanham a família, de acordo com as
+          necessidades de cada um.
+        </Callout>
       </Section>
 
       {/* Cuidando de quem cuida */}
@@ -249,16 +218,11 @@ function ParaFamilias() {
             sobrecarregados têm mais dificuldade em oferecer o melhor apoio — por isso,
             cuidar de si também é cuidar do outro.
           </p>
-          <div className={styles.destaqueClaro}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              🌱
-            </span>
-            <p>
-              Sinais de esgotamento, como cansaço constante, irritabilidade ou tristeza
-              persistente, merecem atenção. Buscar apoio psicológico não é fraqueza — é
-              parte do cuidado.
-            </p>
-          </div>
+          <Callout variante="claro" icone="🌱">
+            Sinais de esgotamento, como cansaço constante, irritabilidade ou tristeza
+            persistente, merecem atenção. Buscar apoio psicológico não é fraqueza — é
+            parte do cuidado.
+          </Callout>
           <ul className={styles.listaClara}>
             <li>Divida tarefas com outros familiares sempre que possível</li>
             <li>Aceite ajuda quando ela for oferecida</li>

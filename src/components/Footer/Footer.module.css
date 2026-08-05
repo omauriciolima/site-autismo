@@ -39,6 +39,10 @@
 }
 
 .lista a {
+  display: block;
+  /* 9px + a altura da linha de texto garante uma área de toque >= 44px,
+     tamanho mínimo recomendado para alvos de toque */
+  padding: 9px 0;
   color: #d8d8d8;
 }
 

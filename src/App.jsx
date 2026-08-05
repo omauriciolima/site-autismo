@@ -18,18 +18,23 @@ import NaoEncontrada from './pages/NaoEncontrada/NaoEncontrada.jsx'
 function App() {
   return (
     <>
+      <a href="#conteudo-principal" className="pular-para-conteudo">
+        Pular para o conteúdo principal
+      </a>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/o-que-e-autismo" element={<OQueEAutismo />} />
-        <Route path="/sinais-e-diagnostico" element={<SinaisDiagnostico />} />
-        <Route path="/para-familias" element={<ParaFamilias />} />
-        <Route path="/direitos-e-leis" element={<DireitosLeis />} />
-        <Route path="/preconceito-e-inclusao" element={<PreconceitoInclusao />} />
-        <Route path="/recursos-e-apoio" element={<RecursosApoio />} />
-        <Route path="/sobre-o-site" element={<SobreOSite />} />
-        <Route path="*" element={<NaoEncontrada />} />
-      </Routes>
+      <div id="conteudo-principal" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/o-que-e-autismo" element={<OQueEAutismo />} />
+          <Route path="/sinais-e-diagnostico" element={<SinaisDiagnostico />} />
+          <Route path="/para-familias" element={<ParaFamilias />} />
+          <Route path="/direitos-e-leis" element={<DireitosLeis />} />
+          <Route path="/preconceito-e-inclusao" element={<PreconceitoInclusao />} />
+          <Route path="/recursos-e-apoio" element={<RecursosApoio />} />
+          <Route path="/sobre-o-site" element={<SobreOSite />} />
+          <Route path="*" element={<NaoEncontrada />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   )

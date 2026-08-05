@@ -1,0 +1,47 @@
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-sm);
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-sm) var(--espaco-md);
+}
+
+.texto {
+  margin: 0;
+}
+
+.icone {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Usada quando o callout vem logo depois de uma grade de cards na mesma seção */
+.comEspacoExtra {
+  margin-top: var(--espaco-md);
+}
+
+/* Variantes de cor */
+
+/* Avisos e alertas — laranja (--cor-apoio) em vez de verde: lê melhor como
+   "atenção" do que o verde, associado a natureza/crescimento no restante
+   do site. O fundo é um âmbar bem claro calibrado para esta borda (o tom
+   pêssego anterior era calibrado para o coral da paleta antiga). */
+.aviso {
+  background-color: #fff7ed;
+  border-left: 5px solid var(--cor-apoio);
+}
+
+/* Informação complementar */
+.destaque {
+  background-color: var(--cor-fundo-alt);
+  border-left: 5px solid var(--cor-primaria);
+}
+
+/* Sobre seções de fundo roxo (sem borda) */
+.claro {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}

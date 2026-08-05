@@ -146,6 +146,12 @@
     background-color: transparent;
   }
 
+  /* No desktop o menu deve ficar sempre visível e focável,
+     independentemente do estado (fechado) do menu mobile */
+  .nav[hidden] {
+    display: block;
+  }
+
   .lista {
     flex-direction: row;
     align-items: center;

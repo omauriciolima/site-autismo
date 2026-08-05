@@ -1,0 +1,165 @@
+/* Hero padrão: usado quando há imagem — duas colunas a partir de 900px */
+.hero {
+  position: relative;
+  /* contém os losangos decorativos: nenhum deles deve criar scroll horizontal */
+  overflow: hidden;
+  color: var(--cor-texto-claro);
+  padding: var(--espaco-xl) 0;
+}
+
+.heroTitulo {
+  color: var(--cor-texto-claro);
+  margin: 0;
+}
+
+.heroTexto {
+  margin: 0;
+  font-size: 18px;
+}
+
+.heroConteudo {
+  /* fica acima dos losangos decorativos, que são posicionados nos cantos
+     do .hero mas nunca devem sobrepor texto ou imagem */
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-lg);
+}
+
+.heroColunaTexto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espaco-sm);
+  max-width: 600px;
+}
+
+.heroImagem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.heroImagem img {
+  height: 280px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Usada só na Home, onde a ilustração é maior */
+.heroImagem.imagemGrande img {
+  height: 400px;
+}
+
+/* Desktop: hero em duas colunas, texto à esquerda e ilustração à direita */
+@media (min-width: 900px) {
+  .heroConteudo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-xl);
+  }
+
+  .heroColunaTexto {
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+  }
+
+  .heroImagem {
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  /* A variante sem imagem nunca vira duas colunas */
+  .heroSemImagem .heroConteudo {
+    flex-direction: column;
+  }
+}
+
+/* Variante sem imagem: coluna única centralizada (Direitos e Leis, Recursos e Apoio) */
+.heroSemImagem {
+  text-align: center;
+}
+
+.heroSemImagem .heroConteudo {
+  gap: var(--espaco-sm);
+  max-width: 760px;
+}
+
+.heroSemImagem .heroTexto {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Gradientes de fundo por página */
+.gradientePrimariaApoioEscura {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-apoio-escura) 100%);
+}
+
+.gradientePrimariaSecundariaEscura {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria-escura) 100%);
+}
+
+.gradientePrimariaTerciariaEscura {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria-escura) 100%);
+}
+
+.gradienteApoioEscuraPrimaria {
+  background: linear-gradient(135deg, var(--cor-apoio-escura) 0%, var(--cor-primaria) 100%);
+}
+
+.gradientePrimariaPrimariaEscura {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+}
+
+.gradienteSecundariaEscuraPrimaria {
+  background: linear-gradient(135deg, var(--cor-secundaria-escura) 0%, var(--cor-primaria) 100%);
+}
+
+.gradienteTerciariaEscuraSecundariaEscura {
+  background: linear-gradient(135deg, var(--cor-terciaria-escura) 0%, var(--cor-secundaria-escura) 100%);
+}
+
+.gradientePrimariaEscuraApoioEscura {
+  background: linear-gradient(135deg, var(--cor-primaria-escura) 0%, var(--cor-apoio-escura) 100%);
+}
+
+/* Posição dos 4 losangos decorativos: colados nos cantos reais do hero,
+   com deslocamento fixo em pixels (não porcentagem) para caberem dentro do
+   padding vertical do hero (--espaco-xl, 64px) independente da altura do
+   conteúdo de cada página — a altura do hero varia bastante entre as 8
+   páginas (com/sem imagem, texto mais longo ou mais curto), então uma
+   porcentagem do hero inteiro não garante ficar fora da área de texto e
+   imagem em todos os casos; um deslocamento fixo e pequeno, sim. */
+.losangoTopoEsquerda {
+  top: 10px;
+  left: 10px;
+}
+
+.losangoTopoDireita {
+  top: 10px;
+  right: 10px;
+}
+
+.losangoBaixoEsquerda {
+  bottom: 10px;
+  left: 10px;
+}
+
+.losangoBaixoDireita {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Em telas estreitas, o hero fica mais baixo e o conteúdo mais próximo das
+   bordas — os dois losangos de baixo somem para não apertar o layout. */
+@media (max-width: 639px) {
+  .losangoBaixoEsquerda,
+  .losangoBaixoDireita {
+    display: none;
+  }
+}

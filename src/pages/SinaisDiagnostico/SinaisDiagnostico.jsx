@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './SinaisDiagnostico.module.css'
 
 // Sinais de alerta observados com mais frequência em cada faixa etária.
@@ -120,42 +122,22 @@ const profissionais = [
 function SinaisDiagnostico() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              Sinais e Diagnóstico
-            </h1>
-            <p className={styles.heroTexto}>
-              Observar sinais com atenção e buscar uma avaliação profissional são os
-              primeiros passos para oferecer o apoio certo, no momento certo.
-            </p>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/Learning-cuate.png"
-              alt="Ilustração de uma pessoa aprendendo e observando, representando a identificação de sinais e o processo de diagnóstico."
-              width="420"
-              height="320"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="Sinais e Diagnóstico"
+        subtitulo="Observar sinais com atenção e buscar uma avaliação profissional são os primeiros passos para oferecer o apoio certo, no momento certo."
+        imagem="/imagens/Learning-cuate.png"
+        imagemAlt="Ilustração de uma pessoa aprendendo e observando, representando a identificação de sinais e o processo de diagnóstico."
+        gradiente="gradientePrimariaTerciariaEscura"
+      />
 
       {/* Aviso importante logo no início */}
       <Section fundo="suave">
-        <div className={styles.avisoDestaque}>
-          <span className={styles.avisoIcone} aria-hidden="true">
-            ⚠️
-          </span>
-          <p>
-            Este conteúdo tem caráter educativo e não substitui avaliação profissional.
-            Apenas médicos e especialistas qualificados podem confirmar um diagnóstico de
-            TEA. Se você identificar sinais, o próximo passo é buscar uma avaliação
-            especializada — quanto antes, melhor.
-          </p>
-        </div>
+        <Callout variante="aviso" icone="⚠️">
+          Este conteúdo tem caráter educativo e não substitui avaliação profissional.
+          Apenas médicos e especialistas qualificados podem confirmar um diagnóstico de
+          TEA. Se você identificar sinais, o próximo passo é buscar uma avaliação
+          especializada — quanto antes, melhor.
+        </Callout>
       </Section>
 
       {/* Sinais por faixa etária */}
@@ -166,35 +148,28 @@ function SinaisDiagnostico() {
       >
         <div className={styles.gradeFaixas}>
           {faixasEtarias.map((item) => (
-            <article
-              className={styles.cardFaixa}
+            <Card
               key={item.faixa}
-              style={{ borderTopColor: item.cor }}
+              icone={item.icone}
+              titulo={item.faixa}
+              descricao={item.intro}
+              corDestaque={item.cor}
+              tamanho="grande"
             >
-              <span className={styles.cardFaixaIcone} aria-hidden="true">
-                {item.icone}
-              </span>
-              <h3 className={styles.cardFaixaTitulo}>{item.faixa}</h3>
-              <p className={styles.cardFaixaIntro}>{item.intro}</p>
               <ul className={styles.listaSinais}>
                 {item.sinais.map((sinal) => (
                   <li key={sinal}>{sinal}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
 
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            💡
-          </span>
-          <p>
-            Um sinal isolado não significa autismo. O que importa é o conjunto de sinais
-            e como eles afetam o dia a dia da pessoa. Só um profissional especializado
-            pode confirmar um diagnóstico.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="💡">
+          Um sinal isolado não significa autismo. O que importa é o conjunto de sinais
+          e como eles afetam o dia a dia da pessoa. Só um profissional especializado
+          pode confirmar um diagnóstico.
+        </Callout>
       </Section>
 
       {/* Como funciona o diagnóstico no Brasil */}
@@ -244,16 +219,11 @@ function SinaisDiagnostico() {
             Isso é normal — o diagnóstico do TEA raramente vem de uma única consulta
             rápida.
           </p>
-          <div className={styles.destaqueClaro}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              🔬
-            </span>
-            <p>
-              Não existe exame de sangue ou de imagem que diagnostique o autismo. A
-              avaliação é clínica, feita por profissionais capacitados, observando o
-              desenvolvimento e o comportamento ao longo do tempo.
-            </p>
-          </div>
+          <Callout variante="claro" icone="🔬">
+            Não existe exame de sangue ou de imagem que diagnostique o autismo. A
+            avaliação é clínica, feita por profissionais capacitados, observando o
+            desenvolvimento e o comportamento ao longo do tempo.
+          </Callout>
           <p className={styles.cta}>
             Recebeu o diagnóstico e não sabe por onde começar?{' '}
             <Link to="/para-familias" className={styles.ctaLink}>

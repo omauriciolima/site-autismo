@@ -1,32 +1,48 @@
 /*
-  Paleta de cores e variáveis globais do site.
+  Paleta de cores e variáveis globais do site — tema "Céu e Natureza".
   Todas as combinações de texto/fundo aqui definidas respeitam
   contraste mínimo de 4.5:1 (nível AA de acessibilidade).
+
+  REGRA DE GOVERNANÇA DE CORES — ler antes de usar estes tokens:
+  - As cores "base" (--cor-primaria, --cor-secundaria, --cor-terciaria,
+    --cor-apoio, --cor-roxo) são para bordas, ícones, sombras isométricas
+    e formas decorativas. NUNCA usar como fundo grande com texto claro
+    por cima: --cor-secundaria e --cor-apoio não atingem 4.5:1 com
+    --cor-texto-claro (3.77:1 e 3.56:1).
+  - As variantes "-escura" são para fundos com texto claro por cima, e
+    para texto/links sobre fundo claro — todas testadas acima de 6.5:1.
+  - --cor-primaria e --cor-roxo são as únicas cores "base" que já passam
+    4.5:1 com texto claro (6.70:1 e 5.20:1) e podem virar fundo direto.
+  - --cor-terciaria (amarelo) é a mais restrita: só funciona com texto
+    ESCURO (--cor-texto) por cima (9.31:1) — com texto claro fica em
+    1.92:1, bem abaixo do mínimo.
 */
 
 :root {
   /* Cores de fundo */
-  --cor-fundo: #fffdf7; /* off-white suave */
-  --cor-fundo-alt: #f5effb; /* leve tom lavanda para alternar seções */
+  --cor-fundo: #f8fafc; /* branco levemente azulado */
+  --cor-fundo-alt: #eff6ff; /* azul bem claro, tema céu, para alternar seções */
 
-  /* Cores principais da marca */
-  --cor-primaria: #7b4fe0; /* roxo neurodiversidade */
-  --cor-primaria-escura: #5a35b0; /* usada em textos/hover sobre fundo claro para reforçar contraste */
-  --cor-secundaria: #ff6f61; /* coral acolhedor */
-  --cor-secundaria-escura: #c2362a; /* variação escura para texto/hover */
-  --cor-terciaria: #ffc93c; /* amarelo energia */
-  --cor-terciaria-escura: #8a6300; /* variação escura para texto/hover (nunca usar a cor base como texto: contraste insuficiente) */
-  --cor-apoio: #2dd4bf; /* verde-água calmo */
-  --cor-apoio-escura: #0f766e; /* variação escura para texto/hover */
+  /* Cores principais da marca — tema Céu e Natureza */
+  --cor-primaria: #1d4ed8; /* azul céu profundo — confiança, calma */
+  --cor-primaria-escura: #1e3a8a;
+  --cor-secundaria: #059669; /* verde esmeralda — natureza, crescimento */
+  --cor-secundaria-escura: #065f46;
+  --cor-terciaria: #eab308; /* amarelo — energia, atenção */
+  --cor-terciaria-escura: #854d0e;
+  --cor-apoio: #ea580c; /* laranja sol — calor humano */
+  --cor-apoio-escura: #9a3412;
+  --cor-roxo: #7b4fe0; /* roxo neurodiversidade, preservado como cor símbolo */
+  --cor-roxo-escura: #5a35b0;
 
   /* Cores de texto */
-  --cor-texto: #2e2a3d; /* cinza-chumbo */
+  --cor-texto: #0f172a;
   --cor-texto-claro: #ffffff;
-  --cor-texto-suave: #5b5568;
+  --cor-texto-suave: #475569;
 
   /* Cores de apoio */
-  --cor-borda: #e6dff2;
-  --cor-foco: #5a35b0; /* cor do contorno de foco visível */
+  --cor-borda: #e2e8f0;
+  --cor-foco: var(--cor-primaria-escura); /* cor do contorno de foco visível */
 
   /* Tipografia */
   --fonte-principal: 'Nunito', 'Segoe UI', sans-serif;
@@ -47,7 +63,40 @@
 
   /* Bordas e sombras */
   --raio-borda: 12px;
-  --sombra-card: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --sombra-card: 0 2px 10px rgba(0, 0, 0, 0.08); /* sombra suave original — ainda em uso por elementos não migrados ao estilo isométrico */
+
+  /* Sombra isométrica: sólida, sem blur, deslocada — cria o efeito
+     "adesivo" 3D dos cards e botões do novo sistema visual. Uma variante
+     por cor da marca. O deslocamento cresce no :hover (ver .sombra-iso-*
+     em index.css), simulando o elemento "subindo" da superfície. */
+  --sombra-iso-deslocamento: 5px;
+  --sombra-iso-deslocamento-hover: 9px;
+  --sombra-iso-translacao-hover: -4px;
+
+  --sombra-iso-primaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-primaria-escura);
+  --sombra-iso-secundaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-secundaria-escura);
+  --sombra-iso-terciaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-terciaria-escura);
+  --sombra-iso-apoio: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-apoio-escura);
+  --sombra-iso-roxo: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-roxo-escura);
+
+  --sombra-iso-primaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-primaria-escura);
+  --sombra-iso-secundaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-secundaria-escura);
+  --sombra-iso-terciaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-terciaria-escura);
+  --sombra-iso-apoio-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-apoio-escura);
+  --sombra-iso-roxo-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-roxo-escura);
+
+  /* Gradientes de hero — uma variante por página (ver PageHero). Centraliza
+     a definição das 8 combinações já usadas hoje; os componentes ainda
+     consomem as fórmulas equivalentes até serem migrados para estes
+     tokens (fora do escopo desta etapa, que é só a fundação). */
+  --gradiente-primaria-apoio-escura: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-apoio-escura) 100%);
+  --gradiente-primaria-secundaria-escura: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria-escura) 100%);
+  --gradiente-primaria-terciaria-escura: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-terciaria-escura) 100%);
+  --gradiente-apoio-escura-primaria: linear-gradient(135deg, var(--cor-apoio-escura) 0%, var(--cor-primaria) 100%);
+  --gradiente-primaria-primaria-escura: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  --gradiente-secundaria-escura-primaria: linear-gradient(135deg, var(--cor-secundaria-escura) 0%, var(--cor-primaria) 100%);
+  --gradiente-terciaria-escura-secundaria-escura: linear-gradient(135deg, var(--cor-terciaria-escura) 0%, var(--cor-secundaria-escura) 100%);
+  --gradiente-primaria-escura-apoio-escura: linear-gradient(135deg, var(--cor-primaria-escura) 0%, var(--cor-apoio-escura) 100%);
 
   /* Breakpoints de referência (usados nos comentários dos arquivos CSS) */
   /* mobile: até 480px | tablet: 768px | desktop: 1024px | desktop-grande: 1280px */

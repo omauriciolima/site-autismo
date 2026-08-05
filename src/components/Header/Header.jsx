@@ -44,6 +44,7 @@ function Header() {
           id="menu-principal"
           className={`${styles.nav} ${menuAberto ? styles.navAberta : ''}`}
           aria-label="Navegação principal"
+          hidden={!menuAberto}
         >
           <ul className={styles.lista}>
             {paginasMenu.map((pagina) => (

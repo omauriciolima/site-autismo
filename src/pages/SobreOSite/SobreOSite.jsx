@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './SobreOSite.module.css'
 
 // Valores que orientam a construção e a manutenção do site
@@ -55,28 +57,13 @@ function SobreOSite() {
 
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              Sobre o Site
-            </h1>
-            <p className={styles.heroTexto}>
-              Conheça o propósito, os valores e a história por trás deste projeto
-              independente e educativo sobre o Autismo.
-            </p>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/Autism-rafiki.png"
-              alt="Ilustração de uma pessoa acolhida e segura, representando os valores e o propósito deste site."
-              width="420"
-              height="320"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="Sobre o Site"
+        subtitulo="Conheça o propósito, os valores e a história por trás deste projeto independente e educativo sobre o Autismo."
+        imagem="/imagens/Autism-rafiki.png"
+        imagemAlt="Ilustração de uma pessoa acolhida e segura, representando os valores e o propósito deste site."
+        gradiente="gradientePrimariaEscuraApoioEscura"
+      />
 
       {/* Nossa história */}
       <Section titulo="Nossa História 💙" fundo="branco">
@@ -114,6 +101,8 @@ function SobreOSite() {
               src="/imagens/davi.jpg"
               alt="Foto do Davi, filho do criador do site"
               className={styles.historiaFotoImagem}
+              width="960"
+              height="1280"
             />
           </div>
         </div>
@@ -135,15 +124,10 @@ function SobreOSite() {
             procurar. Por isso, reunimos aqui, em um só lugar e em linguagem simples,
             conteúdos sobre o que é o TEA, sinais, diagnóstico, direitos e inclusão.
           </p>
-          <div className={styles.destaque}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              🎯
-            </span>
-            <p>
-              Nosso objetivo é simples: ajudar mais pessoas a entender o autismo com
-              empatia, clareza e respeito.
-            </p>
-          </div>
+          <Callout variante="destaque" icone="🎯">
+            Nosso objetivo é simples: ajudar mais pessoas a entender o autismo com
+            empatia, clareza e respeito.
+          </Callout>
         </div>
       </Section>
 
@@ -176,32 +160,24 @@ function SobreOSite() {
             especialmente para quem vive essa realidade de perto: famílias, educadores e
             profissionais de saúde.
           </p>
-          <div className={styles.destaque}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              🛠️
-            </span>
-            <p>
-              Este espaço está sempre em construção. Sugestões, correções e vivências são
-              bem-vindas — quanto mais vozes ajudarem a construir este conteúdo, mais
-              completo e cuidadoso ele se torna.
-            </p>
-          </div>
+          <Callout variante="destaque" icone="🛠️">
+            Este espaço está sempre em construção. Sugestões, correções e vivências são
+            bem-vindas — quanto mais vozes ajudarem a construir este conteúdo, mais
+            completo e cuidadoso ele se torna.
+          </Callout>
         </div>
       </Section>
 
       {/* Aviso importante */}
       <Section titulo="Um aviso importante" fundo="primaria">
         <div className={styles.blocoAviso}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            ⚠️
-          </span>
-          <p>
+          <Callout variante="claro" icone="⚠️">
             Todo o conteúdo deste site tem caráter educativo e informativo. Ele não
             substitui a avaliação, o diagnóstico ou o acompanhamento de médicos,
             terapeutas e demais profissionais qualificados. Em caso de dúvida sobre uma
             situação específica, procure sempre um profissional de saúde ou jurídico
             especializado.
-          </p>
+          </Callout>
         </div>
       </Section>
 
@@ -212,13 +188,20 @@ function SobreOSite() {
         fundo="suave"
       >
         <div className={styles.compartilhar}>
-          <button type="button" className={styles.botaoCompartilhar} onClick={copiarLink}>
+          <button
+            type="button"
+            className={`${styles.botaoCompartilhar} botao-profundidade sombra-iso-primaria`}
+            onClick={copiarLink}
+          >
             <span aria-hidden="true">🔗</span>
             {linkCopiado ? 'Link copiado!' : 'Copiar link do site'}
           </button>
+          <span role="status" className="somente-leitor-de-tela">
+            {linkCopiado ? 'Link copiado para a área de transferência.' : ''}
+          </span>
 
           <a
-            className={styles.botaoCompartilhar}
+            className={`${styles.botaoCompartilhar} botao-profundidade sombra-iso-primaria`}
             href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${mensagemCompartilhar} ${urlAtual}`)}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -228,7 +211,7 @@ function SobreOSite() {
           </a>
 
           <a
-            className={styles.botaoCompartilhar}
+            className={`${styles.botaoCompartilhar} botao-profundidade sombra-iso-primaria`}
             href={`mailto:?subject=${encodeURIComponent('Um site que pode te ajudar a entender o Autismo')}&body=${encodeURIComponent(`${mensagemCompartilhar}\n\n${urlAtual}`)}`}
           >
             <span aria-hidden="true">✉️</span>

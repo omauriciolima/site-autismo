@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './RecursosApoio.module.css'
 
 // Exemplos de organizações reconhecidas de apoio a pessoas com TEA no Brasil
@@ -130,31 +132,19 @@ const livros = [
 function RecursosApoio() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Recursos e Apoio
-          </h1>
-          <p className={styles.heroTexto}>
-            Uma seleção de organizações, conteúdos, aplicativos e caminhos de apoio para
-            continuar essa jornada com mais informação e menos solidão.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        titulo="Recursos e Apoio"
+        subtitulo="Uma seleção de organizações, conteúdos, aplicativos e caminhos de apoio para continuar essa jornada com mais informação e menos solidão."
+        gradiente="gradienteTerciariaEscuraSecundariaEscura"
+      />
 
       {/* Aviso importante */}
       <Section fundo="suave">
-        <div className={styles.avisoDestaque}>
-          <span className={styles.avisoIcone} aria-hidden="true">
-            ⚠️
-          </span>
-          <p>
-            Esta lista é um ponto de partida, não uma indicação exaustiva nem uma
-            recomendação médica. Informações de contato, serviços e disponibilidade podem
-            mudar — confirme sempre diretamente com cada organização ou canal.
-          </p>
-        </div>
+        <Callout variante="aviso" icone="⚠️">
+          Esta lista é um ponto de partida, não uma indicação exaustiva nem uma
+          recomendação médica. Informações de contato, serviços e disponibilidade podem
+          mudar — confirme sempre diretamente com cada organização ou canal.
+        </Callout>
       </Section>
 
       {/* Organizações de apoio */}
@@ -193,16 +183,11 @@ function RecursosApoio() {
             />
           ))}
         </div>
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            💡
-          </span>
-          <p>
-            A fila de espera pelo SUS pode ser longa em algumas regiões. Enquanto isso,
-            vale buscar apoio em ONGs, universidades com clínicas-escola — que costumam
-            oferecer atendimento gratuito ou de baixo custo — e associações locais.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="💡" espacoExtra>
+          A fila de espera pelo SUS pode ser longa em algumas regiões. Enquanto isso,
+          vale buscar apoio em ONGs, universidades com clínicas-escola — que costumam
+          oferecer atendimento gratuito ou de baixo custo — e associações locais.
+        </Callout>
       </Section>
 
       {/* Conteúdos online e grupos de apoio */}
@@ -237,16 +222,11 @@ function RecursosApoio() {
           </ul>
         </div>
 
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            🔍
-          </span>
-          <p>
-            Antes de seguir uma recomendação encontrada online, verifique a formação de
-            quem está falando, desconfie de promessas de "cura" e prefira fontes que
-            citam evidências científicas.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="🔍" espacoExtra>
+          Antes de seguir uma recomendação encontrada online, verifique a formação de
+          quem está falando, desconfie de promessas de "cura" e prefira fontes que
+          citam evidências científicas.
+        </Callout>
       </Section>
 
       {/* Aplicativos úteis */}

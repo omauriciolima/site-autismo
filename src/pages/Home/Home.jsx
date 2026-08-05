@@ -1,3 +1,4 @@
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
 import { paginasMenu } from '../../data/paginas'
@@ -10,31 +11,20 @@ import styles from './Home.module.css'
 function Home() {
   return (
     <main>
-      {/* Hero section */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              Todo mundo merece ser compreendido.
-            </h1>
-            <p className={styles.heroTexto}>
-              Informação clara, acolhedora e sem jargões para famílias, educadores e
-              profissionais que querem entender e apoiar melhor pessoas com Autismo (TEA).
-            </p>
-            <a href="#acesso-rapido" className={styles.heroCta}>
-              Explorar o site
-            </a>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/Family-cuate.png"
-              alt="Ilustração de uma família reunida e feliz, representando acolhimento e apoio mútuo."
-              width="500"
-              height="400"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="Todo mundo merece ser compreendido."
+        subtitulo="Informação clara, acolhedora e sem jargões para famílias, educadores e profissionais que querem entender e apoiar melhor pessoas com Autismo (TEA)."
+        imagem="/imagens/Family-cuate.png"
+        imagemAlt="Ilustração de uma família reunida e feliz, representando acolhimento e apoio mútuo."
+        imagemLargura={500}
+        imagemAltura={400}
+        tamanhoImagem="grande"
+        gradiente="gradientePrimariaApoioEscura"
+      >
+        <a href="#acesso-rapido" className={`${styles.heroCta} botao-profundidade sombra-iso-primaria`}>
+          Explorar o site
+        </a>
+      </PageHero>
 
       {/* Cards de acesso rápido */}
       <Section

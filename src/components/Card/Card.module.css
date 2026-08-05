@@ -1,27 +1,27 @@
+/* border, border-radius, background-color, box-shadow e a transition de
+   hover agora vêm das classes globais .cartao-isometrico e .sombra-iso-*
+   (ver index.css), aplicadas junto com estas no Card.jsx. Aqui só fica o
+   que é específico deste componente: o layout interno e o border-top de
+   destaque, que .cartao-isometrico propositalmente não toca. */
 .card,
 .cardLink {
   display: flex;
   flex-direction: column;
   gap: var(--espaco-xs);
-  background-color: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
   border-top: 5px solid var(--cor-primaria);
-  border-radius: var(--raio-borda);
-  box-shadow: var(--sombra-card);
   padding: var(--espaco-md);
   height: 100%;
 }
 
-/* Quando o card é um link, remove o sublinhado e melhora a experiência de foco/hover */
+/* Quando o card é um link, remove o sublinhado; no hover, mantém a cor do
+   texto herdada em vez do azul de link global (o translate + sombra maior
+   do hover já vêm de .cartao-isometrico/.sombra-iso-*) */
 .cardLink {
   color: inherit;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cardLink:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
   color: inherit;
 }
 
@@ -33,6 +33,10 @@
 .titulo {
   margin: 0;
   font-size: 20px;
+}
+
+.tituloGrande {
+  font-size: 22px;
 }
 
 .descricao {

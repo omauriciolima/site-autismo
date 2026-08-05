@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './DireitosLeis.module.css'
 
 // As duas leis federais mais importantes para pessoas com TEA no Brasil
@@ -116,32 +118,20 @@ const direitosSaude = [
 function DireitosLeis() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <h1 id="hero-titulo" className={styles.heroTitulo}>
-            Direitos e Leis
-          </h1>
-          <p className={styles.heroTexto}>
-            Conhecer a legislação é um passo importante para garantir que os direitos das
-            pessoas com TEA sejam respeitados na escola, no trabalho e na saúde.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        titulo="Direitos e Leis"
+        subtitulo="Conhecer a legislação é um passo importante para garantir que os direitos das pessoas com TEA sejam respeitados na escola, no trabalho e na saúde."
+        gradiente="gradientePrimariaPrimariaEscura"
+      />
 
       {/* Aviso importante */}
       <Section fundo="suave">
-        <div className={styles.avisoDestaque}>
-          <span className={styles.avisoIcone} aria-hidden="true">
-            ⚠️
-          </span>
-          <p>
-            Este conteúdo tem caráter educativo e informativo, não substitui orientação
-            jurídica. Leis e regulamentações podem mudar ou variar conforme o estado — em
-            caso de dúvida sobre uma situação específica, procure um advogado ou a
-            Defensoria Pública.
-          </p>
-        </div>
+        <Callout variante="aviso" icone="⚠️">
+          Este conteúdo tem caráter educativo e informativo, não substitui orientação
+          jurídica. Leis e regulamentações podem mudar ou variar conforme o estado — em
+          caso de dúvida sobre uma situação específica, procure um advogado ou a
+          Defensoria Pública.
+        </Callout>
       </Section>
 
       {/* Principais leis */}
@@ -152,15 +142,7 @@ function DireitosLeis() {
       >
         <div className={styles.gradeLeis}>
           {leis.map((lei) => (
-            <article
-              className={styles.cardLei}
-              key={lei.titulo}
-              style={{ borderTopColor: lei.cor }}
-            >
-              <span className={styles.cardLeiIcone} aria-hidden="true">
-                {lei.icone}
-              </span>
-              <h3 className={styles.cardLeiTitulo}>{lei.titulo}</h3>
+            <Card key={lei.titulo} icone={lei.icone} titulo={lei.titulo} corDestaque={lei.cor} tamanho="grande">
               <p className={styles.cardLeiSubtitulo}>{lei.subtitulo}</p>
               <p className={styles.cardLeiIntro}>{lei.intro}</p>
               <ul className={styles.listaPontos}>
@@ -168,7 +150,7 @@ function DireitosLeis() {
                   <li key={ponto}>{ponto}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </Section>
@@ -228,16 +210,11 @@ function DireitosLeis() {
             />
           ))}
         </div>
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            💡
-          </span>
-          <p>
-            As regras podem mudar e variam conforme o plano e a operadora. Em caso de
-            negativa de cobertura, vale registrar reclamação na ANS e buscar orientação
-            jurídica.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="💡" espacoExtra>
+          As regras podem mudar e variam conforme o plano e a operadora. Em caso de
+          negativa de cobertura, vale registrar reclamação na ANS e buscar orientação
+          jurídica.
+        </Callout>
       </Section>
 
       {/* O que fazer se um direito for negado */}

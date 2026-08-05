@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './OQueEAutismo.module.css'
 
 // Áreas em que o autismo pode se manifestar de forma diferente em cada pessoa
@@ -67,28 +69,13 @@ const mitosEVerdades = [
 function OQueEAutismo() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              O que é o Autismo?
-            </h1>
-            <p className={styles.heroTexto}>
-              Uma explicação simples sobre o Transtorno do Espectro Autista (TEA), como ele
-              se manifesta e por que cada pessoa autista é única.
-            </p>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/Autism-cuate.png"
-              alt="Ilustração de uma pessoa em um ambiente acolhedor, representando o universo do Autismo."
-              width="420"
-              height="320"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="O que é o Autismo?"
+        subtitulo="Uma explicação simples sobre o Transtorno do Espectro Autista (TEA), como ele se manifesta e por que cada pessoa autista é única."
+        imagem="/imagens/Autism-cuate.png"
+        imagemAlt="Ilustração de uma pessoa em um ambiente acolhedor, representando o universo do Autismo."
+        gradiente="gradientePrimariaSecundariaEscura"
+      />
 
       {/* Entendendo o TEA */}
       <Section titulo="Entendendo o TEA" fundo="branco">
@@ -103,16 +90,11 @@ function OQueEAutismo() {
             criar os filhos ou por qualquer tipo de culpa dos pais. É uma diferença no
             desenvolvimento do cérebro que acompanha a pessoa por toda a vida.
           </p>
-          <div className={styles.destaque}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              💡
-            </span>
-            <p>
-              TEA não é sinônimo de deficiência intelectual. Muitas pessoas autistas têm
-              inteligência típica, ou até acima da média — o autismo afeta principalmente
-              a comunicação e a interação social, não a capacidade de pensar.
-            </p>
-          </div>
+          <Callout variante="aviso" icone="💡">
+            TEA não é sinônimo de deficiência intelectual. Muitas pessoas autistas têm
+            inteligência típica, ou até acima da média — o autismo afeta principalmente
+            a comunicação e a interação social, não a capacidade de pensar.
+          </Callout>
         </div>
       </Section>
 
@@ -169,16 +151,11 @@ function OQueEAutismo() {
             acompanhamento adequado — o que faz uma diferença enorme no desenvolvimento da
             comunicação, da autonomia e da qualidade de vida.
           </p>
-          <div className={styles.destaqueClaro}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              💡
-            </span>
-            <p>
-              O diagnóstico precoce não é sobre "rotular" a criança, mas sobre abrir
-              portas: acesso a terapias, direitos garantidos por lei e mais compreensão
-              por parte da família e da escola.
-            </p>
-          </div>
+          <Callout variante="claro" icone="💡">
+            O diagnóstico precoce não é sobre "rotular" a criança, mas sobre abrir
+            portas: acesso a terapias, direitos garantidos por lei e mais compreensão
+            por parte da família e da escola.
+          </Callout>
           <p className={styles.cta}>
             Quer saber quais sinais observar e como funciona o processo de diagnóstico?{' '}
             <Link to="/sinais-e-diagnostico" className={styles.ctaLink}>

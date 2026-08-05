@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
+import Callout from '../../components/Callout/Callout.jsx'
 import styles from './PreconceitoInclusao.module.css'
 
 // Formas comuns como o preconceito contra pessoas autistas se manifesta no dia a dia
@@ -91,41 +93,21 @@ const termosDeLinguagem = [
 function PreconceitoInclusao() {
   return (
     <main>
-      {/* Hero da página */}
-      <section className={styles.hero} aria-labelledby="hero-titulo">
-        <div className={`container ${styles.heroConteudo}`}>
-          <div className={styles.heroColunaTexto}>
-            <h1 id="hero-titulo" className={styles.heroTitulo}>
-              Preconceito e Inclusão
-            </h1>
-            <p className={styles.heroTexto}>
-              Entender como o preconceito se manifesta é o primeiro passo para construir
-              uma sociedade mais acolhedora com as diferenças.
-            </p>
-          </div>
-          <div className={styles.heroImagem}>
-            <img
-              src="/imagens/Children-bro.png"
-              alt="Ilustração de crianças brincando juntas, representando a inclusão e o respeito às diferenças."
-              width="420"
-              height="320"
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        titulo="Preconceito e Inclusão"
+        subtitulo="Entender como o preconceito se manifesta é o primeiro passo para construir uma sociedade mais acolhedora com as diferenças."
+        imagem="/imagens/Children-bro.png"
+        imagemAlt="Ilustração de crianças brincando juntas, representando a inclusão e o respeito às diferenças."
+        gradiente="gradienteSecundariaEscuraPrimaria"
+      />
 
       {/* Acolhimento inicial */}
       <Section fundo="suave">
-        <div className={styles.avisoDestaque}>
-          <span className={styles.avisoIcone} aria-hidden="true">
-            🌈
-          </span>
-          <p>
-            O preconceito contra pessoas autistas ainda existe — muitas vezes de forma
-            sutil, disfarçado de "opinião" ou "brincadeira". Mas a boa notícia é que
-            inclusão se constrói todos os dias, com pequenas atitudes e informação.
-          </p>
-        </div>
+        <Callout variante="aviso" icone="🌈">
+          O preconceito contra pessoas autistas ainda existe — muitas vezes de forma
+          sutil, disfarçado de "opinião" ou "brincadeira". Mas a boa notícia é que
+          inclusão se constrói todos os dias, com pequenas atitudes e informação.
+        </Callout>
       </Section>
 
       {/* Como o preconceito se manifesta */}
@@ -156,16 +138,11 @@ function PreconceitoInclusao() {
             julgamento; irmãos podem se sentir sobrecarregados; e a criança ou adulto
             autista aprende, cedo demais, a se sentir "errado" por ser quem é.
           </p>
-          <div className={styles.destaque}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              💭
-            </span>
-            <p>
-              Esse cansaço tem nome: alguns pesquisadores chamam de "estigma por
-              associação" — quando a família também sofre as consequências do
-              preconceito dirigido à pessoa autista.
-            </p>
-          </div>
+          <Callout variante="destaque" icone="💭" espacoExtra>
+            Esse cansaço tem nome: alguns pesquisadores chamam de "estigma por
+            associação" — quando a família também sofre as consequências do
+            preconceito dirigido à pessoa autista.
+          </Callout>
         </div>
       </Section>
 
@@ -177,21 +154,13 @@ function PreconceitoInclusao() {
       >
         <div className={styles.gradeComunicacao}>
           {comoCombater.map((bloco) => (
-            <article
-              className={styles.cardComunicacao}
-              key={bloco.titulo}
-              style={{ borderTopColor: bloco.cor }}
-            >
-              <span className={styles.cardComunicacaoIcone} aria-hidden="true">
-                {bloco.icone}
-              </span>
-              <h3 className={styles.cardComunicacaoTitulo}>{bloco.titulo}</h3>
+            <Card key={bloco.titulo} icone={bloco.icone} titulo={bloco.titulo} corDestaque={bloco.cor} tamanho="grande">
               <ul className={styles.listaDicas}>
                 {bloco.acoes.map((acao) => (
                   <li key={acao}>{acao}</li>
                 ))}
               </ul>
-            </article>
+            </Card>
           ))}
         </div>
       </Section>
@@ -203,31 +172,24 @@ function PreconceitoInclusao() {
         fundo="suave"
       >
         <div className={styles.gradeLinguagem}>
-          <article className={styles.cardTermo} style={{ borderTopColor: 'var(--cor-primaria)' }}>
-            <h3 className={styles.cardTermoTitulo}>"Pessoa com autismo"</h3>
-            <p className={styles.cardTermoDescricao}>
-              Linguagem centrada na pessoa: coloca o indivíduo antes da condição, para
-              reforçar que o diagnóstico não define a pessoa por completo.
-            </p>
-          </article>
-          <article className={styles.cardTermo} style={{ borderTopColor: 'var(--cor-terciaria)' }}>
-            <h3 className={styles.cardTermoTitulo}>"Autista"</h3>
-            <p className={styles.cardTermoDescricao}>
-              Linguagem baseada na identidade: muitas pessoas autistas preferem esse
-              termo por entenderem o autismo como parte inseparável de quem elas são.
-            </p>
-          </article>
+          <Card
+            titulo='"Pessoa com autismo"'
+            descricao="Linguagem centrada na pessoa: coloca o indivíduo antes da condição, para reforçar que o diagnóstico não define a pessoa por completo."
+            corDestaque="var(--cor-primaria)"
+            tamanho="grande"
+          />
+          <Card
+            titulo='"Autista"'
+            descricao="Linguagem baseada na identidade: muitas pessoas autistas preferem esse termo por entenderem o autismo como parte inseparável de quem elas são."
+            corDestaque="var(--cor-terciaria)"
+            tamanho="grande"
+          />
         </div>
 
-        <div className={styles.destaque}>
-          <span className={styles.destaqueIcone} aria-hidden="true">
-            💡
-          </span>
-          <p>
-            Não existe consenso único — e está tudo bem. Quando possível, pergunte à
-            própria pessoa autista (ou à família) qual termo ela prefere usar.
-          </p>
-        </div>
+        <Callout variante="destaque" icone="💡" espacoExtra>
+          Não existe consenso único — e está tudo bem. Quando possível, pergunte à
+          própria pessoa autista (ou à família) qual termo ela prefere usar.
+        </Callout>
 
         <div className={styles.listaTermos}>
           {termosDeLinguagem.map((item) => (
@@ -253,16 +215,11 @@ function PreconceitoInclusao() {
             humano funcionar — e que essas diferenças, como o autismo, o TDAH ou a
             dislexia, são variações naturais, não defeitos a serem corrigidos.
           </p>
-          <div className={styles.destaqueClaro}>
-            <span className={styles.destaqueIcone} aria-hidden="true">
-              🌱
-            </span>
-            <p>
-              Isso não significa ignorar as dificuldades reais que muitas pessoas
-              autistas enfrentam. Significa reconhecer que apoio e aceitação podem
-              caminhar juntos, sem que um anule o outro.
-            </p>
-          </div>
+          <Callout variante="claro" icone="🌱">
+            Isso não significa ignorar as dificuldades reais que muitas pessoas
+            autistas enfrentam. Significa reconhecer que apoio e aceitação podem
+            caminhar juntos, sem que um anule o outro.
+          </Callout>
           <p className={styles.cta}>
             Quer conhecer materiais, comunidades e canais de apoio?{' '}
             <Link to="/recursos-e-apoio" className={styles.ctaLink}>
