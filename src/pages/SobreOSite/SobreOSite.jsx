@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Heart, Search, Palette, MessageCircle, Handshake, Target, Wrench, TriangleAlert, Link as LinkIcon, Mail } from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,27 +9,29 @@ import styles from './SobreOSite.module.css'
 // Valores que orientam a construção e a manutenção do site
 const valores = [
   {
-    icone: '💙',
+    icone: Heart,
     titulo: 'Acolhimento',
     descricao: 'Cada família chega até aqui em um momento diferente. Este espaço busca acolher, não julgar.',
   },
   {
-    icone: '🔍',
+    icone: Search,
     titulo: 'Informação com responsabilidade',
     descricao: 'Buscamos apresentar conteúdo alinhado ao conhecimento atual, revisando e atualizando sempre que necessário.',
   },
   {
-    icone: '🌈',
+    // Palette, não Heart: "Acolhimento" já usa Heart neste mesmo grid —
+    // repetir o ícone faria os dois cards parecerem a mesma coisa.
+    icone: Palette,
     titulo: 'Respeito à diversidade',
     descricao: 'Cada pessoa autista é única. Tratamos essa diversidade como algo a ser respeitado, não corrigido.',
   },
   {
-    icone: '🗣️',
+    icone: MessageCircle,
     titulo: 'Linguagem acessível',
     descricao: 'Evitamos jargões desnecessários. Informação de qualidade deve poder ser entendida por qualquer pessoa.',
   },
   {
-    icone: '🤝',
+    icone: Handshake,
     titulo: 'Gratuidade e independência',
     descricao: 'Este é um projeto sem fins lucrativos e sem vínculos comerciais que influenciem o conteúdo apresentado.',
   },
@@ -124,7 +127,7 @@ function SobreOSite() {
             procurar. Por isso, reunimos aqui, em um só lugar e em linguagem simples,
             conteúdos sobre o que é o TEA, sinais, diagnóstico, direitos e inclusão.
           </p>
-          <Callout variante="destaque" icone="🎯">
+          <Callout variante="destaque" icone={Target}>
             Nosso objetivo é simples: ajudar mais pessoas a entender o autismo com
             empatia, clareza e respeito.
           </Callout>
@@ -160,7 +163,7 @@ function SobreOSite() {
             especialmente para quem vive essa realidade de perto: famílias, educadores e
             profissionais de saúde.
           </p>
-          <Callout variante="destaque" icone="🛠️">
+          <Callout variante="destaque" icone={Wrench}>
             Este espaço está sempre em construção. Sugestões, correções e vivências são
             bem-vindas — quanto mais vozes ajudarem a construir este conteúdo, mais
             completo e cuidadoso ele se torna.
@@ -171,7 +174,7 @@ function SobreOSite() {
       {/* Aviso importante */}
       <Section titulo="Um aviso importante" fundo="primaria">
         <div className={styles.blocoAviso}>
-          <Callout variante="claro" icone="⚠️">
+          <Callout variante="claro" icone={TriangleAlert}>
             Todo o conteúdo deste site tem caráter educativo e informativo. Ele não
             substitui a avaliação, o diagnóstico ou o acompanhamento de médicos,
             terapeutas e demais profissionais qualificados. Em caso de dúvida sobre uma
@@ -193,7 +196,7 @@ function SobreOSite() {
             className={`${styles.botaoCompartilhar} botao-profundidade sombra-iso-primaria`}
             onClick={copiarLink}
           >
-            <span aria-hidden="true">🔗</span>
+            <LinkIcon aria-hidden="true" size={20} />
             {linkCopiado ? 'Link copiado!' : 'Copiar link do site'}
           </button>
           <span role="status" className="somente-leitor-de-tela">
@@ -206,7 +209,7 @@ function SobreOSite() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span aria-hidden="true">💬</span>
+            <MessageCircle aria-hidden="true" size={20} />
             Compartilhar no WhatsApp
           </a>
 
@@ -214,7 +217,7 @@ function SobreOSite() {
             className={`${styles.botaoCompartilhar} botao-profundidade sombra-iso-primaria`}
             href={`mailto:?subject=${encodeURIComponent('Um site que pode te ajudar a entender o Autismo')}&body=${encodeURIComponent(`${mensagemCompartilhar}\n\n${urlAtual}`)}`}
           >
-            <span aria-hidden="true">✉️</span>
+            <Mail aria-hidden="true" size={20} />
             Compartilhar por e-mail
           </a>
         </div>

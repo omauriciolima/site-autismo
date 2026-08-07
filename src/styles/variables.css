@@ -66,24 +66,15 @@
   --sombra-card: 0 2px 10px rgba(0, 0, 0, 0.08); /* sombra suave original — ainda em uso por elementos não migrados ao estilo isométrico */
 
   /* Sombra isométrica: sólida, sem blur, deslocada — cria o efeito
-     "adesivo" 3D dos cards e botões do novo sistema visual. Uma variante
-     por cor da marca. O deslocamento cresce no :hover (ver .sombra-iso-*
-     em index.css), simulando o elemento "subindo" da superfície. */
+     "adesivo" 3D dos cards e botões do novo sistema visual. Só os
+     deslocamentos ficam aqui como tokens; a cor de cada sombra vem de
+     --sombra-cor-atual (custom property definida pelas classes
+     .sombra-iso-* em index.css), e o box-shadow final é composto ali
+     mesmo — em duas camadas (repouso + ::after/::before que cresce no
+     hover) para animar só opacity, nunca o box-shadow em si. */
   --sombra-iso-deslocamento: 5px;
   --sombra-iso-deslocamento-hover: 9px;
   --sombra-iso-translacao-hover: -4px;
-
-  --sombra-iso-primaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-primaria-escura);
-  --sombra-iso-secundaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-secundaria-escura);
-  --sombra-iso-terciaria: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-terciaria-escura);
-  --sombra-iso-apoio: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-apoio-escura);
-  --sombra-iso-roxo: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--cor-roxo-escura);
-
-  --sombra-iso-primaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-primaria-escura);
-  --sombra-iso-secundaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-secundaria-escura);
-  --sombra-iso-terciaria-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-terciaria-escura);
-  --sombra-iso-apoio-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-apoio-escura);
-  --sombra-iso-roxo-hover: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0 var(--cor-roxo-escura);
 
   /* Gradientes de hero — uma variante por página (ver PageHero). Centraliza
      a definição das 8 combinações já usadas hoje; os componentes ainda

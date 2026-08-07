@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { MessageCircle, Handshake, Repeat, Volume2, Lightbulb, X, Check } from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,25 +9,25 @@ import styles from './OQueEAutismo.module.css'
 // Áreas em que o autismo pode se manifestar de forma diferente em cada pessoa
 const areasDoEspectro = [
   {
-    icone: '💬',
+    icone: MessageCircle,
     titulo: 'Comunicação',
     descricao:
       'Algumas pessoas autistas falam pouco ou não falam; outras conversam muito, mas têm dificuldade em compreender ironias, expressões figuradas ou "regras" não ditas da conversa.',
   },
   {
-    icone: '🤝',
+    icone: Handshake,
     titulo: 'Interações sociais',
     descricao:
       'O jeito de se relacionar pode variar bastante: desde preferir ficar mais sozinho até desejar muito fazer amizades, mas sentir dificuldade em saber como se aproximar.',
   },
   {
-    icone: '🔁',
+    icone: Repeat,
     titulo: 'Rotinas e interesses',
     descricao:
       'É comum haver interesses muito intensos por temas específicos e preferência por rotinas previsíveis — mudanças repentinas podem gerar bastante desconforto.',
   },
   {
-    icone: '🔊',
+    icone: Volume2,
     titulo: 'Sensibilidade sensorial',
     descricao:
       'Sons, luzes, texturas ou cheiros podem ser sentidos de forma mais intensa (ou menos intensa) do que o comum, afetando o conforto no dia a dia.',
@@ -90,7 +91,7 @@ function OQueEAutismo() {
             criar os filhos ou por qualquer tipo de culpa dos pais. É uma diferença no
             desenvolvimento do cérebro que acompanha a pessoa por toda a vida.
           </p>
-          <Callout variante="aviso" icone="💡">
+          <Callout variante="aviso" icone={Lightbulb}>
             TEA não é sinônimo de deficiência intelectual. Muitas pessoas autistas têm
             inteligência típica, ou até acima da média — o autismo afeta principalmente
             a comunicação e a interação social, não a capacidade de pensar.
@@ -127,13 +128,13 @@ function OQueEAutismo() {
           {mitosEVerdades.map((item) => (
             <article className={styles.itemMito} key={item.mito}>
               <p className={styles.linhaMito}>
-                <span aria-hidden="true">❌</span>
+                <X aria-hidden="true" size={20} />
                 <span>
                   <strong>Mito:</strong> {item.mito}
                 </span>
               </p>
               <p className={styles.linhaVerdade}>
-                <span aria-hidden="true">✅</span>
+                <Check aria-hidden="true" size={20} />
                 <span>
                   <strong>Verdade:</strong> {item.verdade}
                 </span>
@@ -151,7 +152,7 @@ function OQueEAutismo() {
             acompanhamento adequado — o que faz uma diferença enorme no desenvolvimento da
             comunicação, da autonomia e da qualidade de vida.
           </p>
-          <Callout variante="claro" icone="💡">
+          <Callout variante="claro" icone={Lightbulb}>
             O diagnóstico precoce não é sobre "rotular" a criança, mas sobre abrir
             portas: acesso a terapias, direitos garantidos por lei e mais compreensão
             por parte da família e da escola.

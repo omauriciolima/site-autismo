@@ -1,4 +1,22 @@
 import { Link } from 'react-router-dom'
+import {
+  Scroll,
+  IdCard,
+  Backpack,
+  NotebookPen,
+  ClipboardList,
+  GraduationCap,
+  Coins,
+  BarChart3,
+  Landmark,
+  Wrench,
+  Scale,
+  Hospital,
+  FileText,
+  Pill,
+  TriangleAlert,
+  Lightbulb,
+} from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,7 +26,7 @@ import styles from './DireitosLeis.module.css'
 // As duas leis federais mais importantes para pessoas com TEA no Brasil
 const leis = [
   {
-    icone: '📜',
+    icone: Scroll,
     titulo: 'Lei Berenice Piana',
     subtitulo: 'Lei nº 12.764/2012',
     cor: 'var(--cor-primaria)',
@@ -23,7 +41,7 @@ const leis = [
     ],
   },
   {
-    icone: '🪪',
+    icone: IdCard,
     titulo: 'Lei Romeo Mion',
     subtitulo: 'Lei nº 13.977/2020 — Carteira CIPTEA',
     cor: 'var(--cor-secundaria)',
@@ -41,27 +59,27 @@ const leis = [
 // Direitos garantidos no ambiente escolar
 const direitosEscola = [
   {
-    icone: '🎒',
+    icone: Backpack,
     titulo: 'Matrícula garantida',
     descricao: 'Escolas públicas ou particulares não podem recusar a matrícula por causa do diagnóstico — recusar é crime.',
   },
   {
-    icone: '📝',
+    icone: NotebookPen,
     titulo: 'Atendimento Educacional Especializado',
     descricao: 'Direito a suporte pedagógico complementar, geralmente oferecido na sala de recursos multifuncionais.',
   },
   {
-    icone: '📋',
+    icone: ClipboardList,
     titulo: 'Plano Educacional Individualizado',
     descricao: 'Adaptação de atividades, materiais e avaliações às necessidades específicas de cada aluno.',
   },
   {
-    icone: '🧑‍🏫',
+    icone: GraduationCap,
     titulo: 'Profissional de apoio',
     descricao: 'Quando necessário, a escola deve oferecer um mediador ou cuidador especializado para acompanhar o aluno.',
   },
   {
-    icone: '💰',
+    icone: Coins,
     titulo: 'Sem cobrança extra',
     descricao: 'Escolas particulares não podem cobrar valores adicionais pelas adaptações exigidas por lei.',
   },
@@ -70,22 +88,22 @@ const direitosEscola = [
 // Direitos garantidos no ambiente de trabalho
 const direitosTrabalho = [
   {
-    icone: '📊',
+    icone: BarChart3,
     titulo: 'Lei de Cotas',
     descricao: 'Empresas com 100 ou mais funcionários devem reservar parte das vagas para pessoas com deficiência, incluindo pessoas com TEA.',
   },
   {
-    icone: '🏛️',
+    icone: Landmark,
     titulo: 'Concursos públicos',
     descricao: 'Editais devem reservar um percentual de vagas para candidatos com deficiência, incluindo pessoas com TEA.',
   },
   {
-    icone: '🛠️',
+    icone: Wrench,
     titulo: 'Adaptações razoáveis',
     descricao: 'O empregador deve oferecer ajustes no ambiente e na rotina de trabalho quando forem necessários.',
   },
   {
-    icone: '⚖️',
+    icone: Scale,
     titulo: 'Proteção contra discriminação',
     descricao: 'Recusar contratação, promoção ou demitir alguém apenas por causa do diagnóstico fere a legislação.',
   },
@@ -94,17 +112,17 @@ const direitosTrabalho = [
 // Direitos relacionados à saúde: SUS e planos de saúde
 const direitosSaude = [
   {
-    icone: '🏥',
+    icone: Hospital,
     titulo: 'SUS',
     descricao: 'Garante atendimento multiprofissional — fonoaudiologia, terapia ocupacional, psicologia e outros — por meio de CAPS, UBS e serviços especializados da rede pública.',
   },
   {
-    icone: '📄',
+    icone: FileText,
     titulo: 'Planos de saúde',
     descricao: 'Seguindo as diretrizes da ANS, os planos devem cobrir as terapias indicadas para o TEA, prescritas por profissional habilitado.',
   },
   {
-    icone: '💊',
+    icone: Pill,
     titulo: 'Medicamentos e insumos',
     descricao: 'Quando prescritos, alguns medicamentos e insumos podem ser fornecidos gratuitamente pelo SUS, conforme protocolos clínicos.',
   },
@@ -126,7 +144,7 @@ function DireitosLeis() {
 
       {/* Aviso importante */}
       <Section fundo="suave">
-        <Callout variante="aviso" icone="⚠️">
+        <Callout variante="aviso" icone={TriangleAlert}>
           Este conteúdo tem caráter educativo e informativo, não substitui orientação
           jurídica. Leis e regulamentações podem mudar ou variar conforme o estado — em
           caso de dúvida sobre uma situação específica, procure um advogado ou a
@@ -210,7 +228,7 @@ function DireitosLeis() {
             />
           ))}
         </div>
-        <Callout variante="destaque" icone="💡" espacoExtra>
+        <Callout variante="destaque" icone={Lightbulb} espacoExtra>
           As regras podem mudar e variam conforme o plano e a operadora. Em caso de
           negativa de cobertura, vale registrar reclamação na ANS e buscar orientação
           jurídica.

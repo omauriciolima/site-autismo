@@ -170,49 +170,42 @@ input:focus-visible,
    regra acima já neutraliza qualquer transition-duration do projeto.
    ========================================================================== */
 
-/* Sombra isométrica: sólida, sem blur, deslocada — compõe com
-   .cartao-isometrico, .botao-profundidade ou qualquer elemento com
-   transition de transform/box-shadow definida. Uma classe por cor. */
+/* Sombra isométrica: sólida, sem blur, deslocada — cada classe só define
+   QUAL cor usar (via a custom property --sombra-cor-atual), não o
+   box-shadow em si. Quem lê essa cor é .cartao-isometrico/.botao-profundidade,
+   que compõem o box-shadow final e — mais importante — animam a
+   OPACIDADE de uma camada (::after/::before), nunca o box-shadow
+   diretamente. Isso é o que faz o hover custar só compositing (transform +
+   opacity) em vez de repaint a cada frame; ver nota mais abaixo. */
 .sombra-iso-primaria {
-  box-shadow: var(--sombra-iso-primaria);
+  --sombra-cor-atual: var(--cor-primaria-escura);
 }
-.sombra-iso-primaria:hover {
-  box-shadow: var(--sombra-iso-primaria-hover);
-}
-
 .sombra-iso-secundaria {
-  box-shadow: var(--sombra-iso-secundaria);
+  --sombra-cor-atual: var(--cor-secundaria-escura);
 }
-.sombra-iso-secundaria:hover {
-  box-shadow: var(--sombra-iso-secundaria-hover);
-}
-
 .sombra-iso-terciaria {
-  box-shadow: var(--sombra-iso-terciaria);
+  --sombra-cor-atual: var(--cor-terciaria-escura);
 }
-.sombra-iso-terciaria:hover {
-  box-shadow: var(--sombra-iso-terciaria-hover);
-}
-
 .sombra-iso-apoio {
-  box-shadow: var(--sombra-iso-apoio);
+  --sombra-cor-atual: var(--cor-apoio-escura);
 }
-.sombra-iso-apoio:hover {
-  box-shadow: var(--sombra-iso-apoio-hover);
-}
-
 .sombra-iso-roxo {
-  box-shadow: var(--sombra-iso-roxo);
-}
-.sombra-iso-roxo:hover {
-  box-shadow: var(--sombra-iso-roxo-hover);
+  --sombra-cor-atual: var(--cor-roxo-escura);
 }
 
 /* Card isométrico: combine com uma das classes .sombra-iso-* acima para
    escolher a cor, ex.: <article class="cartao-isometrico sombra-iso-secundaria">.
    No hover, o card "sobe" (translada na direção oposta ao deslocamento da
-   sombra) enquanto a sombra cresce — reforça a leitura de profundidade. */
+   sombra) enquanto a sombra cresce.
+
+   A sombra em repouso é um box-shadow ESTÁTICO no próprio elemento — não
+   anima, então não tem custo de repaint. O crescimento no hover é feito
+   por um ::after do tamanho do card, com o box-shadow maior já pronto e
+   opacity:0; no hover, só a opacidade dele anima até 1. Só transform e
+   opacity mudam ao longo do tempo, nunca box-shadow — como pede a
+   diretriz "Animate transform/opacity only". */
 .cartao-isometrico {
+  position: relative;
   /* Não usa o shorthand "border" de propósito: o Card já estiliza seu
      próprio border-top (5px, colorido, o "destaque" do card) e um
      shorthand aqui colidiria com isso dependendo da ordem de carregamento
@@ -223,22 +216,53 @@ input:focus-visible,
   border-left: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda);
   background-color: var(--cor-fundo);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--sombra-cor-atual, transparent);
+  transition: transform 0.15s ease;
+}
+
+.cartao-isometrico::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0
+    var(--sombra-cor-atual, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
 }
 
 .cartao-isometrico:hover {
   transform: translate(var(--sombra-iso-translacao-hover), var(--sombra-iso-translacao-hover));
 }
 
-/* Botão com profundidade: mesma lógica do card, com um estado :active que
-   "afunda" o botão (remove a sombra e a translação) ao ser pressionado —
-   reforço tátil de que a ação foi registrada. */
-/* Não define color/background-color de propósito: cada botão que consome
+.cartao-isometrico:hover::after {
+  opacity: 1;
+}
+
+/* Botão com profundidade: a mesma técnica do card, mas com duas camadas
+   (::before para a sombra em repouso, ::after para a sombra maior do
+   hover) porque o botão também precisa "afundar" no :active — as duas
+   camadas vão a opacity:0 juntas, então nenhuma sombra fica visível
+   enquanto pressionado. De novo, só opacity anima; nenhum box-shadow
+   muda de valor depois de pintado.
+   Não define color/background-color de propósito: cada botão que consome
    esta classe (.heroCta, .botaoCompartilhar) tem seu próprio esquema de
    cor (ex.: o heroCta é branco sobre o hero colorido, não colorido com
-   texto branco) e continua definindo isso no próprio módulo CSS. Esta
-   classe cuida só da forma, do movimento e do estado de :active. */
+   texto branco) e continua definindo isso no próprio módulo CSS — inclusive
+   a transition de background-color do hover, que continua lá (não é
+   transform/opacity, mas troca de cor sólida é uma fração do custo de
+   animar box-shadow, e resolver isso sem mexer no HTML dos botões exigiria
+   uma camada extra que este projeto não tem hoje). */
+/* transition é um shorthand — se cada regra que combina com esta classe
+   declarasse a sua própria, uma sobrescreveria a outra por inteiro (não
+   somam). Por isso a lista completa fica só aqui: transform (deste
+   sistema) + background-color (do esquema de cor de quem consome esta
+   classe, ex. .heroCta/.botaoCompartilhar). Um consumidor que não muda
+   background-color no hover simplesmente não usa essa parte da lista —
+   sem custo, sem efeito colateral. */
 .botao-profundidade {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -251,16 +275,49 @@ input:focus-visible,
   font-size: 18px;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.botao-profundidade::before,
+.botao-profundidade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.botao-profundidade::before {
+  box-shadow: var(--sombra-iso-deslocamento) var(--sombra-iso-deslocamento) 0 var(--sombra-cor-atual, transparent);
+  opacity: 1;
+}
+
+.botao-profundidade::after {
+  box-shadow: var(--sombra-iso-deslocamento-hover) var(--sombra-iso-deslocamento-hover) 0
+    var(--sombra-cor-atual, transparent);
+  opacity: 0;
 }
 
 .botao-profundidade:hover {
   transform: translate(var(--sombra-iso-translacao-hover), var(--sombra-iso-translacao-hover));
 }
 
+.botao-profundidade:hover::before {
+  opacity: 0;
+}
+
+.botao-profundidade:hover::after {
+  opacity: 1;
+}
+
 .botao-profundidade:active {
   transform: translate(0, 0);
-  box-shadow: none;
+}
+
+.botao-profundidade:active::before,
+.botao-profundidade:active::after {
+  opacity: 0;
 }
 
 /* Formas geométricas decorativas: losangos rotacionados, usados como

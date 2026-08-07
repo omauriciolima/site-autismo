@@ -23,7 +23,22 @@ function Header() {
     <header className={styles.header}>
       <div className={`container ${styles.conteudo}`}>
         <NavLink to="/" className={styles.logo} onClick={fecharMenu}>
-          <span aria-hidden="true">♾️</span>
+          <svg className={styles.marca} viewBox="0 0 120 60" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="gradienteMarcaInfinito" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="var(--cor-primaria)" />
+                <stop offset="100%" stopColor="var(--cor-secundaria)" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M60,30 C50,10 40,2 30,2 C15,2 2,15 2,30 C2,45 15,58 30,58 C40,58 50,50 60,30 C70,10 80,2 90,2 C105,2 118,15 118,30 C118,45 105,58 90,58 C80,58 70,50 60,30 Z"
+              fill="none"
+              stroke="url(#gradienteMarcaInfinito)"
+              strokeWidth="9"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
           <span>Davi para Autistas</span>
         </NavLink>
 

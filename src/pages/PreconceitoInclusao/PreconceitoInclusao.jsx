@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Eye, Ban, MessageCircleWarning, School, Briefcase, Palette, Brain, Lightbulb, X, Check, Sprout } from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,31 +9,31 @@ import styles from './PreconceitoInclusao.module.css'
 // Formas comuns como o preconceito contra pessoas autistas se manifesta no dia a dia
 const formasDePreconceito = [
   {
-    icone: '👀',
+    icone: Eye,
     titulo: 'Julgamento no olhar alheio',
     descricao:
       'Estereotipias, birras sensoriais ou dificuldade de contato visual são, muitas vezes, mal interpretadas como "malcriação" ou "falta de educação".',
   },
   {
-    icone: '🚫',
+    icone: Ban,
     titulo: 'Exclusão social',
     descricao:
       'Crianças autistas nem sempre são convidadas para festas e brincadeiras; adultos autistas enfrentam dificuldade para fazer parte de grupos sociais.',
   },
   {
-    icone: '😅',
+    icone: MessageCircleWarning,
     titulo: 'Piadas e comentários depreciativos',
     descricao:
       'Expressões como "ela é meio autista", usadas de forma pejorativa, banalizam o diagnóstico e reforçam estigmas.',
   },
   {
-    icone: '🏫',
+    icone: School,
     titulo: 'Barreiras veladas na escola',
     descricao:
       'Mesmo sendo ilegal, algumas escolas dificultam a matrícula ou resistem a fazer as adaptações necessárias.',
   },
   {
-    icone: '💼',
+    icone: Briefcase,
     titulo: 'Barreiras no mercado de trabalho',
     descricao:
       'Preconceitos em entrevistas e a falta de adaptação no ambiente de trabalho ainda limitam oportunidades para adultos autistas.',
@@ -42,7 +43,7 @@ const formasDePreconceito = [
 // Ações práticas para combater o preconceito em dois ambientes centrais
 const comoCombater = [
   {
-    icone: '🏫',
+    icone: School,
     titulo: 'Na escola',
     cor: 'var(--cor-primaria)',
     acoes: [
@@ -53,7 +54,7 @@ const comoCombater = [
     ],
   },
   {
-    icone: '💼',
+    icone: Briefcase,
     titulo: 'No trabalho',
     cor: 'var(--cor-terciaria)',
     acoes: [
@@ -103,7 +104,7 @@ function PreconceitoInclusao() {
 
       {/* Acolhimento inicial */}
       <Section fundo="suave">
-        <Callout variante="aviso" icone="🌈">
+        <Callout variante="aviso" icone={Palette}>
           O preconceito contra pessoas autistas ainda existe — muitas vezes de forma
           sutil, disfarçado de "opinião" ou "brincadeira". Mas a boa notícia é que
           inclusão se constrói todos os dias, com pequenas atitudes e informação.
@@ -138,7 +139,7 @@ function PreconceitoInclusao() {
             julgamento; irmãos podem se sentir sobrecarregados; e a criança ou adulto
             autista aprende, cedo demais, a se sentir "errado" por ser quem é.
           </p>
-          <Callout variante="destaque" icone="💭" espacoExtra>
+          <Callout variante="destaque" icone={Brain} espacoExtra>
             Esse cansaço tem nome: alguns pesquisadores chamam de "estigma por
             associação" — quando a família também sofre as consequências do
             preconceito dirigido à pessoa autista.
@@ -186,7 +187,7 @@ function PreconceitoInclusao() {
           />
         </div>
 
-        <Callout variante="destaque" icone="💡" espacoExtra>
+        <Callout variante="destaque" icone={Lightbulb} espacoExtra>
           Não existe consenso único — e está tudo bem. Quando possível, pergunte à
           própria pessoa autista (ou à família) qual termo ela prefere usar.
         </Callout>
@@ -195,11 +196,11 @@ function PreconceitoInclusao() {
           {termosDeLinguagem.map((item) => (
             <article className={styles.itemTermo} key={item.evitar}>
               <p className={styles.linhaEvitar}>
-                <span aria-hidden="true">❌</span>
+                <X aria-hidden="true" size={20} />
                 <span>{item.evitar}</span>
               </p>
               <p className={styles.linhaUsar}>
-                <span aria-hidden="true">✅</span>
+                <Check aria-hidden="true" size={20} />
                 <span>{item.usar}</span>
               </p>
             </article>
@@ -215,7 +216,7 @@ function PreconceitoInclusao() {
             humano funcionar — e que essas diferenças, como o autismo, o TDAH ou a
             dislexia, são variações naturais, não defeitos a serem corrigidos.
           </p>
-          <Callout variante="claro" icone="🌱">
+          <Callout variante="claro" icone={Sprout}>
             Isso não significa ignorar as dificuldades reais que muitas pessoas
             autistas enfrentam. Significa reconhecer que apoio e aceitação podem
             caminhar juntos, sem que um anule o outro.

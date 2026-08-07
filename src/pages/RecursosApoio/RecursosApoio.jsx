@@ -1,4 +1,27 @@
 import { Link } from 'react-router-dom'
+import {
+  Landmark,
+  Heart,
+  GraduationCap,
+  MapPin,
+  Hospital,
+  Brain,
+  Accessibility,
+  Phone,
+  Users,
+  MessageCircle,
+  Stethoscope,
+  School,
+  MessageSquare,
+  Calendar,
+  Timer,
+  Book,
+  BookMarked,
+  BookText,
+  TriangleAlert,
+  Lightbulb,
+  Search,
+} from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,25 +31,25 @@ import styles from './RecursosApoio.module.css'
 // Exemplos de organizações reconhecidas de apoio a pessoas com TEA no Brasil
 const organizacoes = [
   {
-    icone: '🏛️',
+    icone: Landmark,
     titulo: 'AMA — Associação de Amigos do Autista',
     descricao:
       'Uma das organizações mais antigas do Brasil dedicadas ao autismo, com atendimento terapêutico e apoio a famílias em São Paulo.',
   },
   {
-    icone: '💙',
+    icone: Heart,
     titulo: 'Mundo Azul',
     descricao:
       'Organização conhecida por campanhas de conscientização sobre o TEA, como as ações ligadas ao Dia Mundial de Conscientização do Autismo, em 2 de abril.',
   },
   {
-    icone: '🎓',
+    icone: GraduationCap,
     titulo: 'Instituto NeuroSaber',
     descricao:
       'Plataforma de cursos e conteúdos sobre neurodesenvolvimento, voltada a pais, professores e profissionais de saúde.',
   },
   {
-    icone: '📍',
+    icone: MapPin,
     titulo: 'Associações estaduais e municipais',
     descricao:
       'Muitas cidades e estados têm suas próprias associações de apoio ao autismo. Busque pelo nome da sua cidade + "associação de autismo" para encontrar a mais próxima de você.',
@@ -36,22 +59,22 @@ const organizacoes = [
 // Etapas de acesso a terapias e acompanhamento pelo SUS
 const etapasSUS = [
   {
-    icone: '🏥',
+    icone: Hospital,
     titulo: 'Unidade Básica de Saúde (UBS)',
     descricao: 'Costuma ser o primeiro contato: acompanha o desenvolvimento da criança e faz o encaminhamento inicial.',
   },
   {
-    icone: '🧠',
+    icone: Brain,
     titulo: 'CAPS Infantil (CAPSi)',
     descricao: 'Serviço especializado em saúde mental infantil, com acompanhamento multiprofissional gratuito.',
   },
   {
-    icone: '🦽',
+    icone: Accessibility,
     titulo: 'Centro Especializado em Reabilitação (CER)',
     descricao: 'Unidades do SUS voltadas à reabilitação, incluindo fonoaudiologia, terapia ocupacional e fisioterapia.',
   },
   {
-    icone: '📞',
+    icone: Phone,
     titulo: 'Central de Regulação',
     descricao: 'Em muitos municípios, o encaminhamento para especialistas e terapias passa por uma central de marcação de consultas.',
   },
@@ -60,22 +83,22 @@ const etapasSUS = [
 // Tipos de conteúdo online úteis para se informar sobre o TEA
 const tiposDeConteudo = [
   {
-    icone: '👨‍👩‍👧',
+    icone: Users,
     titulo: 'Relatos de pais e mães atípicos',
     descricao: 'Compartilham vivências reais do dia a dia, o que ajuda outras famílias a se sentirem menos sozinhas.',
   },
   {
-    icone: '🗣️',
+    icone: MessageCircle,
     titulo: 'Autistas adultos contando suas vivências',
     descricao: 'Poucas fontes são tão valiosas quanto o relato em primeira pessoa de quem vive o espectro.',
   },
   {
-    icone: '🩺',
+    icone: Stethoscope,
     titulo: 'Profissionais explicando temas técnicos',
     descricao: 'Fonoaudiólogos, terapeutas ocupacionais e psicólogos que traduzem conceitos clínicos em linguagem simples.',
   },
   {
-    icone: '🏫',
+    icone: School,
     titulo: 'Canais de universidades e institutos',
     descricao: 'Conteúdos com respaldo acadêmico, úteis para professores e profissionais que buscam mais profundidade.',
   },
@@ -84,22 +107,25 @@ const tiposDeConteudo = [
 // Aplicativos que costumam ajudar no dia a dia de pessoas com TEA
 const aplicativos = [
   {
-    icone: '💬',
+    icone: MessageCircle,
     titulo: 'Livox',
     descricao: 'Aplicativo brasileiro de Comunicação Alternativa (CAA), que ajuda pessoas não verbais ou com fala reduzida a se comunicarem por meio de símbolos e voz sintetizada.',
   },
   {
-    icone: '🗨️',
+    // MessageSquare (não MessageCircle) de propósito: os dois apps de
+    // comunicação alternativa ficam lado a lado neste grid e precisam ser
+    // visualmente distintos entre si.
+    icone: MessageSquare,
     titulo: 'Proloquo2Go',
     descricao: 'Aplicativo internacional de Comunicação Alternativa, um dos mais usados no mundo para apoiar a comunicação de pessoas autistas não verbais.',
   },
   {
-    icone: '🗓️',
+    icone: Calendar,
     titulo: 'Agendas visuais',
     descricao: 'Apps de agenda visual organizam a rotina em passos ilustrados, reduzindo a ansiedade diante do que vai acontecer no dia.',
   },
   {
-    icone: '⏱️',
+    icone: Timer,
     titulo: 'Temporizadores visuais',
     descricao: 'Ajudam a criança a entender quanto tempo falta para uma atividade terminar, facilitando as transições.',
   },
@@ -108,17 +134,21 @@ const aplicativos = [
 // Livros que ajudam a entender o autismo por diferentes ângulos
 const livros = [
   {
-    icone: '📘',
+    // Os 3 livros usam ícones diferentes de propósito: corDestaque é fixo
+    // (var(--cor-terciaria)) para o grid inteiro, não varia por item como
+    // em outras listas — então a cor sozinha não diferenciaria os cards,
+    // precisava de um ícone distinto para cada um.
+    icone: Book,
     titulo: '"O Cérebro Autista" — Temple Grandin',
     descricao: 'Escrito por uma autista, é referência mundial ao explicar como o cérebro autista processa informações.',
   },
   {
-    icone: '📗',
+    icone: BookMarked,
     titulo: '"Uma Mente Diferente" — Thomas Armstrong',
     descricao: 'Um mergulho no conceito de neurodiversidade e em como valorizar diferentes formas de pensar.',
   },
   {
-    icone: '📙',
+    icone: BookText,
     titulo: '"Longe da Árvore" — Andrew Solomon',
     descricao: 'Obra ampla sobre famílias e diferenças significativas nos filhos, com um capítulo dedicado ao autismo.',
   },
@@ -140,7 +170,7 @@ function RecursosApoio() {
 
       {/* Aviso importante */}
       <Section fundo="suave">
-        <Callout variante="aviso" icone="⚠️">
+        <Callout variante="aviso" icone={TriangleAlert}>
           Esta lista é um ponto de partida, não uma indicação exaustiva nem uma
           recomendação médica. Informações de contato, serviços e disponibilidade podem
           mudar — confirme sempre diretamente com cada organização ou canal.
@@ -183,7 +213,7 @@ function RecursosApoio() {
             />
           ))}
         </div>
-        <Callout variante="destaque" icone="💡" espacoExtra>
+        <Callout variante="destaque" icone={Lightbulb} espacoExtra>
           A fila de espera pelo SUS pode ser longa em algumas regiões. Enquanto isso,
           vale buscar apoio em ONGs, universidades com clínicas-escola — que costumam
           oferecer atendimento gratuito ou de baixo custo — e associações locais.
@@ -222,7 +252,7 @@ function RecursosApoio() {
           </ul>
         </div>
 
-        <Callout variante="destaque" icone="🔍" espacoExtra>
+        <Callout variante="destaque" icone={Search} espacoExtra>
           Antes de seguir uma recomendação encontrada online, verifique a formação de
           quem está falando, desconfie de promessas de "cura" e prefira fontes que
           citam evidências científicas.

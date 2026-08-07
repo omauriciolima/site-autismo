@@ -13,8 +13,7 @@
 }
 
 .icone {
-  font-size: 1.75rem;
-  line-height: 1;
+  display: inline-flex;
   flex-shrink: 0;
 }
 

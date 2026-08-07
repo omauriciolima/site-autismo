@@ -1,4 +1,22 @@
 import { Link } from 'react-router-dom'
+import {
+  HeartHandshake,
+  Folder,
+  Users,
+  UserCheck,
+  BookOpen,
+  School,
+  MessageCircle,
+  Hand,
+  Brain,
+  Target,
+  Footprints,
+  Music,
+  ChevronRight,
+  Heart,
+  Lightbulb,
+  Sprout,
+} from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -8,31 +26,31 @@ import styles from './ParaFamilias.module.css'
 // Passos que ajudam a família a se organizar logo após o diagnóstico
 const primeirosPassos = [
   {
-    icone: '🫂',
+    icone: HeartHandshake,
     titulo: 'Dê tempo a você',
     descricao:
       'É normal sentir uma mistura de alívio, medo e tristeza ao mesmo tempo. Não existe jeito "certo" de sentir — permita-se viver esse momento sem culpa.',
   },
   {
-    icone: '📁',
+    icone: Folder,
     titulo: 'Organize os documentos',
     descricao:
       'Guarde o laudo, os relatórios e as receitas em um só lugar, físico ou digital. Isso facilita encaminhamentos, matrícula escolar e acesso a direitos.',
   },
   {
-    icone: '👥',
+    icone: Users,
     titulo: 'Busque uma rede de apoio',
     descricao:
       'Procure grupos de pais, comunidades online ou associações locais. Trocar experiências com quem já viveu isso ajuda a não se sentir sozinho.',
   },
   {
-    icone: '🧑‍⚕️',
+    icone: UserCheck,
     titulo: 'Monte a equipe aos poucos',
     descricao:
       'Não é preciso começar tudo de uma vez. Priorize as necessidades mais urgentes e vá incluindo terapias com calma, no ritmo da família.',
   },
   {
-    icone: '📚',
+    icone: BookOpen,
     titulo: 'Aprenda no seu ritmo',
     descricao:
       'Existe muita informação disponível, e nem toda ela é confiável. Busque fontes sérias e vá se aprofundando aos poucos, sem se sobrecarregar.',
@@ -42,7 +60,7 @@ const primeirosPassos = [
 // Orientações para comunicar o diagnóstico à família e à escola
 const comunicacao = [
   {
-    icone: '👨‍👩‍👧',
+    icone: Users,
     titulo: 'Para a família',
     cor: 'var(--cor-primaria)',
     dicas: [
@@ -53,7 +71,7 @@ const comunicacao = [
     ],
   },
   {
-    icone: '🏫',
+    icone: School,
     titulo: 'Para a escola',
     cor: 'var(--cor-terciaria)',
     dicas: [
@@ -76,32 +94,35 @@ const dicasDeRotina = [
 // Terapias e apoios profissionais mais comuns no acompanhamento do TEA
 const terapias = [
   {
-    icone: '🗣️',
+    icone: MessageCircle,
     titulo: 'Fonoaudiologia',
     descricao: 'Apoia o desenvolvimento da comunicação, da linguagem e, em alguns casos, da alimentação.',
   },
   {
-    icone: '🖐️',
+    icone: Hand,
     titulo: 'Terapia ocupacional',
     descricao: 'Trabalha a integração sensorial, a coordenação motora e as habilidades para o dia a dia.',
   },
   {
-    icone: '♾️',
+    icone: Brain,
     titulo: 'Psicoterapia',
     descricao: 'Ajuda a criança, o adolescente ou o adulto a lidar com emoções, ansiedade e desafios sociais.',
   },
   {
-    icone: '🎯',
+    icone: Target,
     titulo: 'Análise do Comportamento Aplicada (ABA)',
     descricao: 'Usa estratégias estruturadas para ensinar novas habilidades e reduzir comportamentos que trazem prejuízo ao dia a dia.',
   },
   {
-    icone: '🤸',
+    // Ícone exclusivo (não reaproveitado) — representa movimento/coordenação
+    // motora de forma mais concreta que PersonStanding, que já é usado em
+    // outra página para a progressão de faixas etárias.
+    icone: Footprints,
     titulo: 'Psicomotricidade',
     descricao: 'Estimula o desenvolvimento motor, o equilíbrio e a consciência corporal por meio de atividades lúdicas.',
   },
   {
-    icone: '🎵',
+    icone: Music,
     titulo: 'Musicoterapia',
     descricao: 'Usa a música como ferramenta para estimular a comunicação, a expressão emocional e a interação social.',
   },
@@ -125,7 +146,7 @@ function ParaFamilias() {
 
       {/* Acolhimento inicial */}
       <Section fundo="suave">
-        <Callout variante="aviso" icone="💙">
+        <Callout variante="aviso" icone={Heart}>
           Se você acabou de receber o diagnóstico, respire. Um diagnóstico de TEA não é
           uma sentença — é um mapa. Ele ajuda a entender melhor a criança (ou o adulto)
           que você ama e a encontrar o apoio certo para o caminho de vocês.
@@ -179,7 +200,7 @@ function ParaFamilias() {
         <ul className={styles.listaRotina}>
           {dicasDeRotina.map((dica) => (
             <li key={dica}>
-              <span aria-hidden="true">🔹</span>
+              <ChevronRight aria-hidden="true" size={18} />
               <span>{dica}</span>
             </li>
           ))}
@@ -203,7 +224,7 @@ function ParaFamilias() {
             />
           ))}
         </div>
-        <Callout variante="destaque" icone="💡" espacoExtra>
+        <Callout variante="destaque" icone={Lightbulb} espacoExtra>
           Nem toda criança precisa de todas essas terapias. A equipe ideal deve ser
           definida junto aos profissionais que acompanham a família, de acordo com as
           necessidades de cada um.
@@ -218,7 +239,7 @@ function ParaFamilias() {
             sobrecarregados têm mais dificuldade em oferecer o melhor apoio — por isso,
             cuidar de si também é cuidar do outro.
           </p>
-          <Callout variante="claro" icone="🌱">
+          <Callout variante="claro" icone={Sprout}>
             Sinais de esgotamento, como cansaço constante, irritabilidade ou tristeza
             persistente, merecem atenção. Buscar apoio psicológico não é fraqueza — é
             parte do cuidado.

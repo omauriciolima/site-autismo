@@ -1,4 +1,21 @@
 import { Link } from 'react-router-dom'
+import {
+  Baby,
+  PersonStanding,
+  User,
+  Eye,
+  Brain,
+  ClipboardList,
+  FileText,
+  Stethoscope,
+  UserCheck,
+  HeartHandshake,
+  MessageCircle,
+  Hand,
+  TriangleAlert,
+  Lightbulb,
+  Microscope,
+} from 'lucide-react'
 import PageHero from '../../components/PageHero/PageHero.jsx'
 import Section from '../../components/Section/Section.jsx'
 import Card from '../../components/Card/Card.jsx'
@@ -7,9 +24,11 @@ import styles from './SinaisDiagnostico.module.css'
 
 // Sinais de alerta observados com mais frequência em cada faixa etária.
 // Nenhum sinal isolado "fecha" diagnóstico — o conjunto é o que importa.
+// Ícones em progressão: Baby -> PersonStanding -> User acompanha a ideia
+// de "crescendo" entre as três faixas etárias.
 const faixasEtarias = [
   {
-    icone: '👶',
+    icone: Baby,
     faixa: '0 a 2 anos',
     cor: 'var(--cor-primaria)',
     intro: 'Nos primeiros anos, os sinais costumam aparecer na comunicação e no contato social.',
@@ -23,7 +42,7 @@ const faixasEtarias = [
     ],
   },
   {
-    icone: '🧒',
+    icone: PersonStanding,
     faixa: '2 a 5 anos',
     cor: 'var(--cor-secundaria)',
     intro: 'Na primeira infância, é comum notar diferenças na fala, na brincadeira e nas rotinas.',
@@ -37,7 +56,7 @@ const faixasEtarias = [
     ],
   },
   {
-    icone: '🧑',
+    icone: User,
     faixa: 'Acima de 5 anos',
     cor: 'var(--cor-terciaria)',
     intro: 'Em crianças maiores e adolescentes, os sinais aparecem mais na vida social e escolar.',
@@ -55,25 +74,25 @@ const faixasEtarias = [
 // Etapas do processo de diagnóstico do TEA no Brasil
 const etapasDiagnostico = [
   {
-    icone: '👀',
+    icone: Eye,
     titulo: 'Observação e relato',
     descricao:
       'Pais, professores ou o próprio cuidador notam sinais no dia a dia e buscam uma primeira avaliação com o pediatra ou clínico geral.',
   },
   {
-    icone: '🧠',
+    icone: Brain,
     titulo: 'Avaliação multidisciplinar',
     descricao:
       'Profissionais como neurologista, psiquiatra e psicólogo avaliam juntos o desenvolvimento, a comunicação e o comportamento.',
   },
   {
-    icone: '📋',
+    icone: ClipboardList,
     titulo: 'Instrumentos e critérios',
     descricao:
       'São usados questionários e escalas (como M-CHAT e ADOS-2) e os critérios do manual diagnóstico (DSM-5), sempre interpretados por profissionais.',
   },
   {
-    icone: '📄',
+    icone: FileText,
     titulo: 'Laudo e plano de apoio',
     descricao:
       'Com o diagnóstico fechado, é emitido um laudo e a família recebe orientações sobre terapias e apoios disponíveis.',
@@ -83,32 +102,32 @@ const etapasDiagnostico = [
 // Profissionais que costumam fazer parte do processo de avaliação e acompanhamento
 const profissionais = [
   {
-    icone: '🩺',
+    icone: Stethoscope,
     titulo: 'Pediatra',
     descricao: 'Geralmente o primeiro contato; identifica sinais no acompanhamento de rotina e encaminha para especialistas.',
   },
   {
-    icone: '🧠',
+    icone: Brain,
     titulo: 'Neurologista ou neuropediatra',
     descricao: 'Avalia o desenvolvimento neurológico e ajuda a descartar outras condições com sinais parecidos.',
   },
   {
-    icone: '🧑‍⚕️',
+    icone: UserCheck,
     titulo: 'Psiquiatra infantil',
     descricao: 'Pode confirmar o diagnóstico e orientar sobre acompanhamento medicamentoso, quando necessário.',
   },
   {
-    icone: '♾️',
+    icone: HeartHandshake,
     titulo: 'Psicólogo',
     descricao: 'Realiza avaliações comportamentais e acompanha o desenvolvimento emocional e social ao longo do tempo.',
   },
   {
-    icone: '🗣️',
+    icone: MessageCircle,
     titulo: 'Fonoaudiólogo',
     descricao: 'Avalia e apoia o desenvolvimento da comunicação, da linguagem e, quando preciso, da fala.',
   },
   {
-    icone: '🖐️',
+    icone: Hand,
     titulo: 'Terapeuta ocupacional',
     descricao: 'Trabalha a integração sensorial, a coordenação motora e as habilidades para o dia a dia.',
   },
@@ -132,7 +151,7 @@ function SinaisDiagnostico() {
 
       {/* Aviso importante logo no início */}
       <Section fundo="suave">
-        <Callout variante="aviso" icone="⚠️">
+        <Callout variante="aviso" icone={TriangleAlert}>
           Este conteúdo tem caráter educativo e não substitui avaliação profissional.
           Apenas médicos e especialistas qualificados podem confirmar um diagnóstico de
           TEA. Se você identificar sinais, o próximo passo é buscar uma avaliação
@@ -165,7 +184,7 @@ function SinaisDiagnostico() {
           ))}
         </div>
 
-        <Callout variante="destaque" icone="💡">
+        <Callout variante="destaque" icone={Lightbulb}>
           Um sinal isolado não significa autismo. O que importa é o conjunto de sinais
           e como eles afetam o dia a dia da pessoa. Só um profissional especializado
           pode confirmar um diagnóstico.
@@ -219,7 +238,7 @@ function SinaisDiagnostico() {
             Isso é normal — o diagnóstico do TEA raramente vem de uma única consulta
             rápida.
           </p>
-          <Callout variante="claro" icone="🔬">
+          <Callout variante="claro" icone={Microscope}>
             Não existe exame de sangue ou de imagem que diagnostique o autismo. A
             avaliação é clínica, feita por profissionais capacitados, observando o
             desenvolvimento e o comportamento ao longo do tempo.

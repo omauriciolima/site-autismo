@@ -1,8 +1,8 @@
-/* border, border-radius, background-color, box-shadow e a transition de
-   hover agora vêm das classes globais .cartao-isometrico e .sombra-iso-*
-   (ver index.css), aplicadas junto com estas no Card.jsx. Aqui só fica o
-   que é específico deste componente: o layout interno e o border-top de
-   destaque, que .cartao-isometrico propositalmente não toca. */
+/* .cardLink (navegável) recebe border/radius/fundo/sombra das classes
+   globais .cartao-isometrico e .sombra-iso-* (ver index.css), aplicadas
+   junto no Card.jsx. Aqui só fica o que é específico deste componente: o
+   layout interno e o border-top de destaque, que .cartao-isometrico
+   propositalmente não toca. */
 .card,
 .cardLink {
   display: flex;
@@ -11,6 +11,20 @@
   border-top: 5px solid var(--cor-primaria);
   padding: var(--espaco-md);
   height: 100%;
+}
+
+/* .card (sem link, conteúdo/lista) não recebe .cartao-isometrico — fica
+   plano de propósito, só com a borda neutra e o border-top colorido, para
+   não competir visualmente com os cards de navegação nem sugerir uma
+   interatividade que não tem. Usa os 3 lados em vez do shorthand "border"
+   pela mesma razão de .cartao-isometrico: não sobrescrever o border-top
+   de destaque declarado acima. */
+.card {
+  border-right: 1px solid var(--cor-borda);
+  border-bottom: 1px solid var(--cor-borda);
+  border-left: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-fundo);
 }
 
 /* Quando o card é um link, remove o sublinhado; no hover, mantém a cor do
@@ -26,8 +40,8 @@
 }
 
 .icone {
-  font-size: 2rem;
-  line-height: 1;
+  display: inline-flex;
+  flex-shrink: 0;
 }
 
 .titulo {
