@@ -11,15 +11,25 @@
   box-sizing: border-box;
 }
 
+/* O gradiente de fundo mora em html, não em body: a área de posicionamento
+   do fundo passa a ser a altura do documento inteiro, então ele vai do topo
+   ao fim da página em vez de se repetir a cada tela. background-color usa a
+   cor FINAL do gradiente (não a inicial) para que qualquer área além da caixa
+   de posicionamento continue o tom do fim, sem emenda visível. */
 html {
   scroll-behavior: smooth;
+  min-height: 100vh;
+  background-color: var(--cor-fundo-gradiente-fim);
+  background-image: linear-gradient(to bottom, var(--cor-fundo) 0%, var(--cor-fundo-gradiente-fim) 65%);
+  background-repeat: no-repeat;
 }
 
+/* body sem fundo próprio de propósito: qualquer cor aqui cobriria o gradiente
+   de html ao longo de toda a altura do conteúdo. */
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--cor-fundo-alt);
   color: var(--cor-texto);
   font-family: var(--fonte-principal);
   font-size: var(--tamanho-base);

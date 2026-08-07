@@ -23,6 +23,19 @@
   --cor-fundo: #f8fafc; /* branco levemente azulado */
   --cor-fundo-alt: #eff6ff; /* azul bem claro, tema céu, para alternar seções */
 
+  /* Fundo da página: gradiente vertical de --cor-fundo até esta cor, aplicado
+     em html (ver index.css). Um passo além de --cor-fundo-alt de propósito —
+     parando no valor de --cor-fundo-alt, a diferença de luminosidade entre o
+     topo e o fim da página fica em ΔL* 1,57, no limiar da percepção. */
+  --cor-fundo-gradiente-fim: #e8f1fe;
+
+  /* Véu translúcido das seções alternadas. Translúcido, e não a cor sólida
+     --cor-fundo-alt, porque o fundo da página muda de tom ao longo da rolagem:
+     uma cor fixa sumiria contra o gradiente na parte de baixo e o ritmo de
+     alternância das seções morreria no meio da página. Como véu, a seção fica
+     sempre um passo mais escura que o que estiver atrás dela. */
+  --cor-veu-secao: rgba(29, 78, 216, 0.05);
+
   /* Cores principais da marca — tema Céu e Natureza */
   --cor-primaria: #1d4ed8; /* azul céu profundo — confiança, calma */
   --cor-primaria-escura: #1e3a8a;

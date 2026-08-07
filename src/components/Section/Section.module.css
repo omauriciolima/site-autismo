@@ -2,12 +2,14 @@
   padding: var(--espaco-xl) 0;
 }
 
+/* Sem fundo próprio: é esta seção que deixa o gradiente de html aparecer.
+   Antes pintava --cor-fundo sólido, o que cobria a página quase inteira. */
 .branco {
-  background-color: var(--cor-fundo);
+  background-color: transparent;
 }
 
 .suave {
-  background-color: var(--cor-fundo-alt);
+  background-color: var(--cor-veu-secao);
 }
 
 .primaria {
